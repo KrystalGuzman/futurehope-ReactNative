@@ -16,8 +16,10 @@ const Header = () => {
 const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
-        height: 60,
-        padding: 15,
+        height: 75,
+        paddingTop: 25,
+        paddingRight: 25,
+        paddingLeft: 25,
         backgroundColor: '#ff9800',
         justifyContent: 'space-between'
     },

@@ -17,9 +17,14 @@ const Home = ({ item, deleteItem }) => {
 const styles = StyleSheet.create({
     text: {
         color: 'black',
-        fontSize: 25,
+        fontSize: 35,
         textAlign: 'center'
+    },
+    container: {
+        height: 550,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
 
-export default Home
+export default Home;
