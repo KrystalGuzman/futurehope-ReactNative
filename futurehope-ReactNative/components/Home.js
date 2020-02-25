@@ -6,11 +6,8 @@ import { NativeRouter, Route, Link } from "react-router-native"
 const Home = ({ item, deleteItem }) => {
 
     return (
-        <View>
-
-
+        <View style={styles.container}>
             <Link to='/notetaking'><Text style={styles.text}>Notes</Text></Link>
-
         </View>
     )
 }
@@ -18,9 +15,14 @@ const Home = ({ item, deleteItem }) => {
 const styles = StyleSheet.create({
     text: {
         color: 'black',
-        fontSize: 25,
+        fontSize: 35,
         textAlign: 'center'
+    },
+    container: {
+        height: 550,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
 
-export default Home
+export default Home;
