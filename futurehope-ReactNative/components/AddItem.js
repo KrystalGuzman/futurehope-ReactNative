@@ -12,7 +12,7 @@ const AddItem = ({ title, addItem }) => {
         <View>
             <TextInput placeholder="Add item..." style={styles.input} onChangeText={onChange} />
             <TouchableOpacity style={styles.button} onPress={() => addItem(text)}>
-                <Text style={styles.buttonText}>Add Notes</Text>
+                <Text style={styles.buttonText}>Add Note</Text>
             </TouchableOpacity>
         </View>
     );
@@ -26,12 +26,12 @@ const styles = StyleSheet.create({
         fontSize: 16
     },
     button: {
-        backgroundColor: '#c2bad8',
+        backgroundColor: '#FFB23D',
         padding: 9,
         margin: 5
     },
     buttonText: {
-        color: 'dodgerblue',
+        color: 'white',
         fontSize: 20,
         textAlign: 'center'
     }

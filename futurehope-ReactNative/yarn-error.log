@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /home/tany/.yarn/bin/yarn.js add uuid
+  /usr/local/bin/node /home/tany/.yarn/bin/yarn.js add react-router-native
 
 PATH: 
   /home/tany/.yarn/bin:/home/tany/.config/yarn/global/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/home/tany/Desktop/Test/node_modules/.yarn-integrity'
+  Error: EACCES: permission denied, unlink '/home/tany/Documents/Lambda/5.  && 6. Labs (1-8)/futurehope-ReactNative/futurehope-ReactNative/node_modules/.yarn-integrity'
 
 npm manifest: 
   {
@@ -32,9 +32,12 @@ npm manifest:
       "react": "~16.9.0",
       "react-dom": "~16.9.0",
       "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+      "react-native-crypto": "^2.2.0",
+      "react-native-randombytes": "^3.5.3",
       "react-native-uuid": "^1.4.9",
       "react-native-vector-icons": "^6.6.0",
       "react-native-web": "~0.11.7",
+      "uuid": "^7.0.0",
       "uuidv4": "^6.0.3"
     },
     "devDependencies": {
@@ -4577,7 +4580,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
     integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
   
-  react-native-crypto@^2.0.1:
+  react-native-crypto@^2.0.1, react-native-crypto@^2.2.0:
     version "2.2.0"
     resolved "https://registry.yarnpkg.com/react-native-crypto/-/react-native-crypto-2.2.0.tgz#c999ed7c96064f830e1f958687f53d0c44025770"
     integrity sha512-eZu9Y8pa8BN9FU2pIex7MLRAi+Cd1Y6bsxfiufKh7sfraAACJvjQTeW7/zcQAT93WMfM+D0OVk+bubvkrbrUkw==
@@ -4593,7 +4596,7 @@ Lockfile:
       public-encrypt "^4.0.0"
       randomfill "^1.0.3"
   
-  react-native-randombytes@^3.5.1:
+  react-native-randombytes@^3.5.1, react-native-randombytes@^3.5.3:
     version "3.5.3"
     resolved "https://registry.yarnpkg.com/react-native-randombytes/-/react-native-randombytes-3.5.3.tgz#b3bdcd11473cce106551a586244b98855e443cd1"
     integrity sha512-n/7QwMrRJxHr+/3mt2KxqqacGylM+ssW+FfBTgXGzvwq5KzSohooEWf6Z6MTSByuJ/izP9VbSPtwomPwzvupKQ==
@@ -5632,7 +5635,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/uuid-js/-/uuid-js-0.7.5.tgz#6c886d02a53d2d40dcf25d91a170b4a7b25b94d0"
     integrity sha1-bIhtAqU9LUDc8l2RoXC0p7JblNA=
   
-  uuid@7.0.0:
+  uuid@7.0.0, uuid@^7.0.0:
     version "7.0.0"
     resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.0.tgz#1833d4b9ce50b732bfaa271f9cb74e974d303c79"
     integrity sha512-LNUrNsXdI/fUsypJbWM8Jt4DgQdFAZh41p9C7WE9Cn+CULOEkoG2lgQyH68v3wnIy5K3fN4jdSt270K6IFA3MQ==
