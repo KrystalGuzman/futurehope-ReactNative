@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { NativeRouter, Route, Link } from "react-router-native"
+import Icon from 'react-native-vector-icons/FontAwesome'
 const Header = () => {
 
     return (
         <View style={styles.header}>
-            <Link to='/'><Text style={styles.text}>Home</Text></Link>
+            <Link to='/'><Icon name='home' color='white' size={42}/></Link>
             <Text style={styles.text}>Future Hope</Text>
         </View>
     )

@@ -1,16 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { NativeRouter, Route, Link } from "react-router-native"
-//import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const Home = ({ item, deleteItem }) => {
 
     return (
         <View>
-
-
-            <Link to='/notetaking'><Text style={styles.text}>Notes</Text></Link>
-
+            <Link to='/notetaking'>
+                <Text style={styles.text}><Icon name='file' size={24}/> Notes</Text>
+            </Link>
         </View>
     )
 }
