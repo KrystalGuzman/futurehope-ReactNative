@@ -2,14 +2,15 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {Link} from "react-router-native";
 //import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const ListItem = ({ item, deleteItem }) => {
 
     return (
         <TouchableOpacity style={styles.listItem}>
             <View style={styles.listItemView}>
-                <Link to={`/noteedit/${item.id}`}><Text style={styles.listItemText}>{item.title}</Text></Link>
-                <Text onPress={() => deleteItem(item.id)}>X</Text>
+               <Link to={`/noteedit/${item.id}`}><Text style={styles.listItemText}>{item.title}</Text></Link>
+                <Icon onPress={() => deleteItem(item.id)} color='red' size={32} name='times-circle' />
             </View>
         </TouchableOpacity>
     )
