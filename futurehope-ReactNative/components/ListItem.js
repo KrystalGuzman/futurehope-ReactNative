@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-
+import {Link} from "react-router-native";
 //import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 const ListItem = ({ item, deleteItem }) => {
@@ -8,7 +8,7 @@ const ListItem = ({ item, deleteItem }) => {
     return (
         <TouchableOpacity style={styles.listItem}>
             <View style={styles.listItemView}>
-                <Text style={styles.listItemText}>{item.title}</Text>
+                <Link to={`/noteedit/${item.id}`}><Text style={styles.listItemText}>{item.title}</Text></Link>
                 <Text onPress={() => deleteItem(item.id)}>X</Text>
             </View>
         </TouchableOpacity>
