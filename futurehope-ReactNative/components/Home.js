@@ -6,9 +6,9 @@ import Icon from "react-native-vector-icons/FontAwesome";
 const Home = ({ item, deleteItem }) => {
 
     return (
-        <View>
+        <View style={styles.container}>
             <Link to='/notetaking'>
-                <Text style={styles.text}><Icon name='file' size={24}/> Notes</Text>
+                <Text style={styles.text}><Icon name='file' size={40}/>  Notes</Text>
             </Link>
         </View>
     )
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     container: {
-        height: 550,
+        height: 450,
         alignItems: 'center',
         justifyContent: 'center'
     }
