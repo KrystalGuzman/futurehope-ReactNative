@@ -25,15 +25,18 @@ const App = () => {
     setItems(prevItems => {
       return [{ id: uuid.v4(), title, content: '' }, ...prevItems];
     });
+    setText('')
   };
 
-
+  const [edit, setEdit] = useState('');
+  const editChange = textValue => setEdit(textValue);
 
   React.useEffect(() => {
     AsyncStorage.getItem("noteAppStorage").then(value => {
-      if (typeof value === 'array') {
+
+      if (value) {
         setItems(JSON.parse(value))
-      }else{
+      } else {
         setItems([])
       }
     })
@@ -45,33 +48,37 @@ const App = () => {
 
   const editItem = (content, id) => {
     setItems(prevItems => {
-      let newArr= []
+      let newArr = []
       let target = {}
-      items.forEach(e=>{
-          
-        if(e.id === id){
-              target = e
-              target.content = content
-               console.log('target',target)
-           }else{
-             newArr.push(e)
-           }
+      items.forEach(e => {
 
-       })
-       setItems([...newArr, {...target}])
-      
+        if (e.id === id) {
+          target = e
+          target.content = content
+          console.log('target', target)
+        } else {
+          newArr.push(e)
+        }
+
+      })
+      setItems([...newArr, { ...target }])
+      setEdit('')
     });
   };
+
+  const [text, setText] = useState('');
+
+  const onTextChange = textValue => setText(textValue);
 
   return (
     <NativeRouter>
       <View style={styles.container}>
         <Header />
-<Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/notetaking'><NoteTaking items={items} addItem={addItem} deleteItem={deleteItem}/></Route>
-        <Route path='/noteedit/:id'><NoteTakingEdit items={items} editItem={editItem}/></Route>
-</Switch>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/notetaking'><NoteTaking items={items} addItem={addItem} deleteItem={deleteItem} text={text} onTextChange={onTextChange} /></Route>
+          <Route path='/noteedit/:id'><NoteTakingEdit items={items} editItem={editItem} edit={edit} editChange={editChange} /></Route>
+        </Switch>
       </View>
     </NativeRouter>
   )

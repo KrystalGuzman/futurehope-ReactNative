@@ -8,18 +8,18 @@ import { NativeRouter, Route, Link } from "react-router-native"
 //import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 
-const NoteTaking = ({items, deleteItem, addItem}) => {
+const NoteTaking = ({ items, deleteItem, addItem, text, onTextChange }) => {
 
 
 
     return (
         <View>
-            <AddItem addItem={addItem} />
+            <AddItem addItem={addItem} text={text} onTextChange={onTextChange} />
             <FlatList
                 data={items}
                 renderItem={({ item }) => <ListItem item={item} deleteItem={deleteItem} />}
             />
-            
+
         </View>
     )
 }

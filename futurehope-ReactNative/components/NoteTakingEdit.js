@@ -3,9 +3,9 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 //import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import { useParams } from 'react-router-native'
 
-const EditItem = ({ items, editItem }) => {
+const EditItem = ({ items, editItem, edit, editChange }) => {
     const { id } = useParams()
-    const [edit, setEdit] = useState('');
+
     const [target, setTarget] = useState({})
     console.log('id', id)
     React.useEffect(() => {
@@ -17,17 +17,17 @@ const EditItem = ({ items, editItem }) => {
             }
         })
     }, [])
-    const onChange = textValue => setEdit(textValue);
+
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{target.title}</Text>
-            <TextInput placeholder="Add details here..." style={styles.input} onChangeText={onChange} />
+            <TextInput placeholder="Add details here..." style={styles.input} onChangeText={editChange} value={edit} />
             <TouchableOpacity style={styles.button} onPress={() => editItem(edit, target.id)}>
                 <Text style={styles.buttonText}>Set Details</Text>
             </TouchableOpacity>
             <Text style={styles.title2}>Details</Text>
-            <Text>{target.content}</Text>
+            <Text style={styles.contents}>{target.content}</Text>
         </View>
     );
 };
@@ -61,6 +61,14 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 20,
         textAlign: 'center'
+    },
+    contents: {
+        borderWidth: 1,
+        borderColor: 'black',
+        width: 400,
+        minHeight: 400,
+        padding: 7,
+        fontSize: 18
     }
 });
 
