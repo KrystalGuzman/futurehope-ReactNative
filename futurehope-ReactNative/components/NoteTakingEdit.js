@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-//import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import { useParams } from 'react-router-native'
 
 const EditItem = ({ items, editItem, edit, editChange }) => {
@@ -17,6 +16,7 @@ const EditItem = ({ items, editItem, edit, editChange }) => {
             }
         })
     }, [])
+
 
 
     return (

@@ -51,6 +51,7 @@ const App = () => {
     setItems(prevItems => {
       let newArr = []
       let target = {}
+
       items.forEach(e => {
 
         if (e.id === id) {
@@ -64,6 +65,7 @@ const App = () => {
       })
       setItems([...newArr, { ...target }])
       setEdit('')
+
     });
   };
 
@@ -77,9 +79,11 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path='/' component={Home} />
+
           <Route path='/notetaking'><NoteTaking items={items} addItem={addItem} deleteItem={deleteItem} text={text} onTextChange={onTextChange} /></Route>
           <Route path='/noteedit/:id'><NoteTakingEdit items={items} editItem={editItem} edit={edit} editChange={editChange} /></Route>
           <Route path='/futurerelease'><FutureRelease /></Route>
+
         </Switch>
       </View>
     </NativeRouter>

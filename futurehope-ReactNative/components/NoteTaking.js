@@ -4,13 +4,10 @@ import ListItem from './ListItem';
 import AddItem from './AddItem';
 
 
-import { NativeRouter, Route, Link } from "react-router-native"
-//import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import { NativeRouter, Route, Link } from "react-router-native";
 
 
 const NoteTaking = ({ items, deleteItem, addItem, text, onTextChange }) => {
-
-
 
     return (
         <View>
@@ -24,4 +21,4 @@ const NoteTaking = ({ items, deleteItem, addItem, text, onTextChange }) => {
     )
 }
 
-export default NoteTaking
+export default NoteTaking;
