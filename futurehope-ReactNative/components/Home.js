@@ -10,7 +10,7 @@ const Home = ({ item, deleteItem }) => {
             <Link to='/notetaking'>
                 <Text style={styles.text}><Icon name='file' size={40} />  Notes</Text>
             </Link>
-            <Link to='/notetaking'>
+            <Link to='/futurerelease'>
                 <Text style={styles.text}><Icon name='calendar' size={40} color='white' /> Calendar</Text>
             </Link>
         </View>
