@@ -55,7 +55,7 @@ const App = () => {
         if (e.id === id) {
           target = e
           target.content = content
-          console.log('target', target)
+
         } else {
           newArr.push(e)
         }

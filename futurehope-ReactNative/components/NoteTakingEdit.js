@@ -7,13 +7,13 @@ const EditItem = ({ items, editItem, edit, editChange }) => {
     const { id } = useParams()
 
     const [target, setTarget] = useState({})
-    console.log('id', id)
+
     React.useEffect(() => {
         items.forEach(e => {
 
             if (e.id === id) {
                 setTarget(e)
-                console.log('target', target)
+
             }
         })
     }, [])
