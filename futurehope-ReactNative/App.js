@@ -48,7 +48,7 @@ const App = () => {
       let newArr= []
       let target = {}
       items.forEach(e=>{
-          
+
         if(e.id === id){
               target = e
               target.content = content
@@ -59,7 +59,7 @@ const App = () => {
 
        })
        setItems([...newArr, {...target}])
-      
+
     });
   };
 
@@ -67,11 +67,11 @@ const App = () => {
     <NativeRouter>
       <View style={styles.container}>
         <Header />
-<Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/notetaking'><NoteTaking items={items} addItem={addItem} deleteItem={deleteItem}/></Route>
-        <Route path='/noteedit/:id'><NoteTakingEdit items={items} editItem={editItem}/></Route>
-</Switch>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/notetaking'><NoteTaking items={items} addItem={addItem} deleteItem={deleteItem}/></Route>
+          <Route path='/noteedit/:id'><NoteTakingEdit items={items} editItem={editItem}/></Route>
+        </Switch>
       </View>
     </NativeRouter>
   )

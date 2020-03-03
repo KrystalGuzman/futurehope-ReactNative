@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-//import Icon from 'react-native-vector-icons/dist/FontAwesome';
-import {useParams} from 'react-router-native'
+import {useParams} from 'react-router-native';
 
 const EditItem = ({ items, editItem }) => {
+
     const {id} = useParams()
     const [edit, setEdit] = useState('');
     const [target, setTarget] = useState({})
+
     console.log('id',id)
+
     React.useEffect(()=>{
        items.forEach(e=>{
-          
+
         if(e.id === id){
                setTarget(e)
                console.log('target',target)
            }
-       }) 
+       })
     },[])
     const onChange = textValue => setEdit(textValue);
 

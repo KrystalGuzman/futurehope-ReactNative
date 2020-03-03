@@ -4,10 +4,9 @@ import { NativeRouter, Route, Link } from "react-router-native"
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Home = ({ item, deleteItem }) => {
-
     return (
         <View style={styles.container}>
-            <Link to='/notetaking'>
+            <Link to='/notetaking' testID='Link'>
                 <Text style={styles.text}><Icon name='file' size={40}/>  Notes</Text>
             </Link>
         </View>

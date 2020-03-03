@@ -1,0 +1,452 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App test against snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ff9800",
+        "flexDirection": "row",
+        "height": 75,
+        "justifyContent": "space-between",
+        "paddingLeft": 15,
+        "paddingRight": 120,
+        "paddingTop": 28,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <Text />
+    </View>
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 25,
+          "textAlign": "center",
+        }
+      }
+    >
+      Future Hope
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 450,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <Text
+        style={
+          Object {
+            "color": "black",
+            "fontSize": 35,
+            "textAlign": "center",
+          }
+        }
+      >
+        <Text />
+          Notes
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`App test against snapshot 2`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ff9800",
+      "flexDirection": "row",
+      "height": 75,
+      "justifyContent": "space-between",
+      "paddingLeft": 15,
+      "paddingRight": 120,
+      "paddingTop": 28,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={null}
+  >
+    <Text />
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 25,
+        "textAlign": "center",
+      }
+    }
+  >
+    Future Hope
+  </Text>
+</View>
+`;
+
+exports[`App test against snapshot 3`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "height": 450,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={null}
+  >
+    <Text
+      style={
+        Object {
+          "color": "black",
+          "fontSize": 35,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text />
+        Notes
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`App test against snapshot 4`] = `
+<View>
+  <View>
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      placeholder="Add item..."
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "fontSize": 16,
+          "height": 60,
+          "padding": 8,
+        }
+      }
+      underlineColorAndroid="transparent"
+    />
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#FFB23D",
+          "margin": 5,
+          "opacity": 1,
+          "padding": 9,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+            "textAlign": "center",
+          }
+        }
+      >
+        Add Note 
+        <Text />
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View />
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Header test against snapshot 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ff9800",
+      "flexDirection": "row",
+      "height": 75,
+      "justifyContent": "space-between",
+      "paddingLeft": 15,
+      "paddingRight": 120,
+      "paddingTop": 28,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={null}
+  >
+    <Text />
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 25,
+        "textAlign": "center",
+      }
+    }
+  >
+    Future Hope
+  </Text>
+</View>
+`;
+
+exports[`Home test against snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "height": 450,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={null}
+  >
+    <Text
+      style={
+        Object {
+          "color": "black",
+          "fontSize": 35,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text />
+        Notes
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`NoteTaking test against snapshot 1`] = `
+<View>
+  <View>
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      placeholder="Add item..."
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "fontSize": 16,
+          "height": 60,
+          "padding": 8,
+        }
+      }
+      underlineColorAndroid="transparent"
+    />
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#FFB23D",
+          "margin": 5,
+          "opacity": 1,
+          "padding": 9,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+            "textAlign": "center",
+          }
+        }
+      >
+        Add Note 
+        <Text />
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View />
+  </RCTScrollView>
+</View>
+`;
+
+exports[`NoteTaking test against snapshot 2`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "height": 450,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={null}
+    testID="Link"
+  >
+    <Text
+      style={
+        Object {
+          "color": "black",
+          "fontSize": 35,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text />
+        Notes
+    </Text>
+  </View>
+</View>
+`;

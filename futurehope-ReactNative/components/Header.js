@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { NativeRouter, Route, Link } from "react-router-native"
 import Icon from 'react-native-vector-icons/FontAwesome'
-const Header = () => {
 
+const Header = () => {
     return (
         <View style={styles.header}>
             <Link to='/'><Icon name='home' color='white' size={42}/></Link>
