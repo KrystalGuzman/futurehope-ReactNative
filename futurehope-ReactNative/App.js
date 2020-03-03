@@ -4,6 +4,7 @@ import NoteTakingEdit from "./components/NoteTakingEdit";
 import Header from './components/Header';
 import Home from './components/Home'
 import NoteTaking from './components/NoteTaking';
+import FutureRelease from './components/FutureRelease'
 import uuid from 'react-native-uuid';
 import { NativeRouter, Route, Link, Switch } from "react-router-native"
 
@@ -25,15 +26,18 @@ const App = () => {
     setItems(prevItems => {
       return [{ id: uuid.v4(), title, content: '' }, ...prevItems];
     });
+    setText('')
   };
 
-
+  const [edit, setEdit] = useState('');
+  const editChange = textValue => setEdit(textValue);
 
   React.useEffect(() => {
     AsyncStorage.getItem("noteAppStorage").then(value => {
-      if (typeof value === 'array') {
+
+      if (value) {
         setItems(JSON.parse(value))
-      }else{
+      } else {
         setItems([])
       }
     })
@@ -45,23 +49,29 @@ const App = () => {
 
   const editItem = (content, id) => {
     setItems(prevItems => {
-      let newArr= []
+      let newArr = []
       let target = {}
-      items.forEach(e=>{
 
-        if(e.id === id){
-              target = e
-              target.content = content
-               console.log('target',target)
-           }else{
-             newArr.push(e)
-           }
+      items.forEach(e => {
 
-       })
-       setItems([...newArr, {...target}])
+        if (e.id === id) {
+          target = e
+          target.content = content
+
+        } else {
+          newArr.push(e)
+        }
+
+      })
+      setItems([...newArr, { ...target }])
+      setEdit('')
 
     });
   };
+
+  const [text, setText] = useState('');
+
+  const onTextChange = textValue => setText(textValue);
 
   return (
     <NativeRouter>
@@ -69,8 +79,11 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route path='/notetaking'><NoteTaking items={items} addItem={addItem} deleteItem={deleteItem}/></Route>
-          <Route path='/noteedit/:id'><NoteTakingEdit items={items} editItem={editItem}/></Route>
+
+          <Route path='/notetaking'><NoteTaking items={items} addItem={addItem} deleteItem={deleteItem} text={text} onTextChange={onTextChange} /></Route>
+          <Route path='/noteedit/:id'><NoteTakingEdit items={items} editItem={editItem} edit={edit} editChange={editChange} /></Route>
+          <Route path='/futurerelease'><FutureRelease /></Route>
+
         </Switch>
       </View>
     </NativeRouter>

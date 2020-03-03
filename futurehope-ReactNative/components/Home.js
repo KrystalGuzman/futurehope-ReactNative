@@ -6,8 +6,13 @@ import Icon from "react-native-vector-icons/FontAwesome";
 const Home = ({ item, deleteItem }) => {
     return (
         <View style={styles.container}>
-            <Link to='/notetaking' testID='Link'>
-                <Text style={styles.text}><Icon name='file' size={40}/>  Notes</Text>
+
+            <Link to='/notetaking'>
+                <Text style={styles.text}><Icon name='file' size={40} />  Notes</Text>
+            </Link>
+            <Link to='/futurerelease'>
+                <Text style={styles.text}><Icon name='calendar' size={40} color='white' /> Calendar</Text>
+
             </Link>
         </View>
     )
@@ -15,14 +20,20 @@ const Home = ({ item, deleteItem }) => {
 
 const styles = StyleSheet.create({
     text: {
-        color: 'black',
+        color: 'white',
         fontSize: 35,
-        textAlign: 'center'
+        textAlign: 'center',
+        backgroundColor: '#ff9800',
+        width: 300,
+        margin: 60,
+        padding: 40,
+        borderRadius: 70
     },
     container: {
-        height: 450,
+        height: 650,
         alignItems: 'center',
         justifyContent: 'center'
+
     }
 });
 

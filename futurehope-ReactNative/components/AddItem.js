@@ -2,17 +2,15 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const AddItem = ({ title, addItem }) => {
+const AddItem = ({ title, addItem, text, onTextChange }) => {
 
-    const [text, setText] = useState('');
 
-    const onChange = textValue => setText(textValue);
 
     return (
-        <View>
-            <TextInput placeholder="Add item..." style={styles.input} onChangeText={onChange} />
+        <View style={styles.container}>
+            <TextInput placeholder="Add item..." style={styles.input} onChangeText={onTextChange} value={text} />
             <TouchableOpacity style={styles.button} onPress={() => addItem(text)}>
-                <Text style={styles.buttonText}>Add Note <Icon name='paper-plane' color='white' size={24}/></Text>
+                <Text style={styles.buttonText}>Add Note <Icon name='paper-plane' color='white' size={24} /></Text>
             </TouchableOpacity>
         </View>
     );
@@ -20,6 +18,10 @@ const AddItem = ({ title, addItem }) => {
 
 
 const styles = StyleSheet.create({
+    container: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     input: {
         height: 60,
         padding: 8,
@@ -28,7 +30,9 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#FFB23D',
         padding: 9,
-        margin: 5
+        margin: 5,
+        width: 200,
+        borderRadius: 20
     },
     buttonText: {
         color: 'white',
