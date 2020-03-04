@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App test against snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ff9800",
+        "flexDirection": "row",
+        "height": 75,
+        "justifyContent": "space-between",
+        "paddingTop": 28,
+      }
+    }
+  >
+    <Text />
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 30,
+          "textAlign": "center",
+        }
+      }
+    >
+      School in the Sky
+    </Text>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "marginLeft": 20,
+          "marginRight": 20,
+        }
+      }
+    >
+      <Text />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 650,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <Text
+        style={
+          Object {
+            "backgroundColor": "#ff9800",
+            "borderRadius": 70,
+            "color": "white",
+            "fontSize": 35,
+            "margin": 60,
+            "padding": 40,
+            "textAlign": "center",
+            "width": 300,
+          }
+        }
+      >
+        <Text />
+          Notes
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <Text
+        style={
+          Object {
+            "backgroundColor": "#ff9800",
+            "borderRadius": 70,
+            "color": "white",
+            "fontSize": 35,
+            "margin": 60,
+            "padding": 40,
+            "textAlign": "center",
+            "width": 300,
+          }
+        }
+      >
+        <Text />
+         Calendar
+      </Text>
+    </View>
+  </View>
+</View>
+`;
