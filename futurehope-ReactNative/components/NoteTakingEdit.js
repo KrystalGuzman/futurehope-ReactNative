@@ -12,12 +12,9 @@ const EditItem = ({ items, editItem, edit, editChange }) => {
 
             if (e.id === id) {
                 setTarget(e)
-
             }
         })
-    }, [])
-
-
+    }, [items])
 
     return (
         <View style={styles.container}>

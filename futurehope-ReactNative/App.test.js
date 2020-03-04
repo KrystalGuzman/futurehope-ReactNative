@@ -7,37 +7,30 @@ import Header from './components/Header';
 import Home from './components/Home';
 import ListItem from './components/ListItem';
 import NoteTaking from './components/NoteTaking';
+import AddItem from './components/AddItem';
 import NoteTakingEdit from './components/NoteTakingEdit';
 
-
-test('Header test against snapshot', () => {
-    const tree = render(<Header />).toJSON();
+test('App test against snapshot', () => {
+    const tree = render(<App />).toJSON();
     expect(tree).toMatchSnapshot();
 });
 
-
-test('NoteTaking test against snapshot', () => {
-    const tree = render(<NoteTaking />).toJSON();
-    expect(tree).toMatchSnapshot();
+test('renders the passed label', () => {
+  const { queryByText } = render(<NoteTaking item="Test Item" />);
+  expect(queryByText('ASDF')).toBeNull();
 });
 
-test('NoteTaking test against snapshot', () => {
-    const tree = render(<Home />).toJSON();
-    expect(tree).toMatchSnapshot();
-});
+test('can press the button', () => {
+  const onPressMock = jest.fn();
+  const dummyPressMock = jest.fn()
 
-test('Header name is correct', () => {
-  const { getByText } = render(<Header />);
-  const element = getByText('Future Hope');
-});
+  const { getByText } = render(<AddItem title="" onTextChange={dummyPressMock} addItem={onPressMock} text="Testing" />);
+  const addButton = getByText(/Add Note/i);
 
-// test('should invoke specified event', () => {
-//    const onPressMock = jest.fn();
-//    const { getByTestId } = render(<Home onPress={NoteTaking} />);
-//
-//    fireEvent(getByTestId('Link'), 'press');
-//  });
+  fireEvent.press(addButton);
+  expect(onPressMock).toHaveBeenCalled();
+  expect(onPressMock.mock.calls.length).toBe(1);
 
-test('debug.shallow', () => {
-  expect(debug.shallow).toBe(debugShallow);
+  fireEvent.press(addButton);
+  expect(onPressMock.mock.calls.length).toBe(2);
 });

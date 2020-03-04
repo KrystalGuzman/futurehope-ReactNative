@@ -16,7 +16,6 @@ const NoteTaking = ({ items, deleteItem, addItem, text, onTextChange }) => {
                 data={items}
                 renderItem={({ item }) => <ListItem item={item} deleteItem={deleteItem} />}
             />
-
         </View>
     )
 }

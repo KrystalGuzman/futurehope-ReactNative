@@ -12,7 +12,6 @@ const Home = ({ item, deleteItem }) => {
             </Link>
             <Link to='/futurerelease'>
                 <Text style={styles.text}><Icon name='calendar' size={40} color='white' /> Calendar</Text>
-
             </Link>
         </View>
     )

@@ -9,9 +9,6 @@ import { NativeRouter, Route, Link } from "react-router-native"
 
 
 const FutureRelease = ({ items, deleteItem, addItem, text, onTextChange }) => {
-
-
-
     return (
         <View style={styles.container} >
             <Text style={styles.text}>This feature is in development and is scheduled for a future release.</Text>
