@@ -4,7 +4,7 @@ import NoteTakingEdit from "./components/NoteTakingEdit";
 import Header from './components/Header';
 import Home from './components/Home'
 import NoteTaking from './components/NoteTaking';
-import FutureRelease from './components/FutureRelease'
+import CalendarRoutes from './components/calendar/CalendarRoutes'
 import uuid from 'react-native-uuid';
 import { NativeRouter, Route, Link, Switch } from "react-router-native"
 
@@ -82,7 +82,7 @@ const App = () => {
 
           <Route path='/notetaking'><NoteTaking items={items} addItem={addItem} deleteItem={deleteItem} text={text} onTextChange={onTextChange} /></Route>
           <Route path='/noteedit/:id'><NoteTakingEdit items={items} editItem={editItem} edit={edit} editChange={editChange} /></Route>
-          <Route path='/futurerelease'><FutureRelease /></Route>
+          <Route path='/calendar'><CalendarRoutes /></Route>
 
         </Switch>
       </View>
