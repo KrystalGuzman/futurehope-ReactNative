@@ -1,25 +1,18 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
-import { Agenda } from "react-native-calendars";
+import EditAgenda from "./EditAgenda";
 
-import AgendaItem from "./AgendaItem";
-
-const CalendarView = ({ agendaItems, setDate, setAgendaItems }) => {
+const AgendaItem = ({ item, setAgendaItems, agendaItems }) => {
   return (
-    <Agenda
-      items={{ ...agendaItems }}
-      renderItem={(item, firstItemInDay) => {
-        console.log(item);
-        return (
-          <AgendaItem
-            item={item}
-            setAgendaItems={setAgendaItems}
-            agendaItems={agendaItems}
-          />
-        );
-      }}
-    />
+    <View style={styles.itemView}>
+      <Text style={styles.itemText}>{item.text}</Text>
+      <EditAgenda
+        item={item}
+        setAgendaItems={setAgendaItems}
+        agendaItems={agendaItems}
+      />
+    </View>
   );
 };
 
@@ -60,11 +53,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     justifyContent: "space-around",
     marginRight: 20,
-    marginBottom: 5
+    marginBottom: 5,
+    flexDirection: "row",
+    alignContent: "center"
   },
   itemText: {
     fontSize: 18
   }
 });
 
-export default CalendarView;
+export default AgendaItem;
