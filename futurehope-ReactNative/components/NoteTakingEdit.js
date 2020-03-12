@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { useParams } from 'react-router-native'
+import {widthPercentageToDP, heightPercentageToDP} from "../utils/PercenatageFix";
 
 const EditItem = ({ items, editItem, edit, editChange }) => {
     const { id } = useParams()
@@ -62,9 +63,9 @@ const styles = StyleSheet.create({
     contents: {
         borderWidth: 1,
         borderColor: 'black',
-        width: 400,
-        minHeight: 400,
-        padding: 7,
+        width: widthPercentageToDP('98%'),
+        height: heightPercentageToDP('33%'),
+        padding: 10,
         fontSize: 18
     }
 });

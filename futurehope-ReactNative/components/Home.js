@@ -2,12 +2,13 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { NativeRouter, Route, Link } from "react-router-native"
 import Icon from "react-native-vector-icons/FontAwesome";
+import {widthPercentageToDP, heightPercentageToDP} from "../utils/PercenatageFix";
 
 const Home = ({ item, deleteItem }) => {
     return (
         <View style={styles.container}>
 
-            <Link to='/notetaking'>
+            <Link to='/notetaking/noteview'>
                 <Text style={styles.text}><Icon name='file' size={40} />  Notes</Text>
             </Link>
             <Link to='/calendar/agenda'>
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
         borderRadius: 70
     },
     container: {
-        height: 650,
+        height: heightPercentageToDP('85%'),
         alignItems: 'center',
         justifyContent: 'center'
 
