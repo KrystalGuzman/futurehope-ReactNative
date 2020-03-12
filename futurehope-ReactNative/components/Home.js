@@ -7,7 +7,7 @@ const Home = ({ item, deleteItem }) => {
     return (
         <View style={styles.container}>
 
-            <Link to='/notetaking'>
+            <Link to='/notetaking/noteview'>
                 <Text style={styles.text}><Icon name='file' size={40} />  Notes</Text>
             </Link>
             <Link to='/calendar/agenda'>

@@ -5,6 +5,7 @@ import { Route, useHistory } from "react-router-native"
 import CalendarView from './CalendarView'
 import AddEvent from './AddEvent'
 
+
 const CalendarRoutes = () => {
 
     const [agendaItems, setAgendaItems] = useState({
@@ -22,13 +23,12 @@ const CalendarRoutes = () => {
     }
 
     return (
-
         <View style={{ flex: 1 }}>
-            <Route exact path='/calendar/addEvent'><AddEvent date={date} submitHandler={submitHandler} /></Route>
-            <Route exact path='/calendar/agenda'><CalendarView agendaItems={agendaItems} setDate={setDate} /></Route>
+            <Route exact path='/calendar/addevent'><AddEvent submitHandler={submitHandler} /></Route>
+            <Route exact path='/calendar/agenda'><CalendarView agendaItems={agendaItems} /></Route>
         </View>
-
     )
+
 }
 
 export default CalendarRoutes
