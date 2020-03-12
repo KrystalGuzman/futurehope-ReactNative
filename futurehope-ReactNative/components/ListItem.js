@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {Link} from "react-router-native";
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { widthPercentageToDP } from '../utils/PercenatageFix';
 
 const ListItem = ({ item, deleteItem }) => {
     return (
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     },
     listItemText: {
         fontSize: 18,
-        width: 360,
+        width: widthPercentageToDP('83%'),
         maxWidth: 360
     }
 });

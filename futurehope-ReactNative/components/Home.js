@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { NativeRouter, Route, Link } from "react-router-native"
 import Icon from "react-native-vector-icons/FontAwesome";
+import {widthPercentageToDP, heightPercentageToDP} from "../utils/PercenatageFix";
 
 const Home = ({ item, deleteItem }) => {
     return (
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
         borderRadius: 70
     },
     container: {
-        height: 650,
+        height: heightPercentageToDP('85%'),
         alignItems: 'center',
         justifyContent: 'center'
 
