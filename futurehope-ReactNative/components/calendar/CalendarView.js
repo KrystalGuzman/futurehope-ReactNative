@@ -9,16 +9,25 @@ import { NativeRouter, Route, Link, useHistory } from "react-router-native"
 
 const CalendarView = ({ agendaItems, setDate }) => {
 
+    const history = useHistory()
+
+    function onPress() {
+        history.replace('/calendar/addevent')
+    }
     return (
+        <View style={{ flex: 1 }}>
+            <Agenda
 
-        <Agenda
-            items={agendaItems}
-            renderItem={(item, firstItemInDay) => {
-                console.log(item)
-                return (<View style={styles.itemView}><Text style={styles.itemText}>{item.text}</Text></View>);
-            }}
-        />
-
+                items={agendaItems}
+                renderItem={(item, firstItemInDay) => {
+                    console.log(item)
+                    return (<View style={styles.itemView}><Text style={styles.itemText}>{item.text}</Text></View>);
+                }}
+            />
+            <View style={styles.container}  >
+                <Text style={styles.button} onPress={onPress}>Add an Event</Text>
+            </View>
+        </View>
     )
 }
 
@@ -31,7 +40,7 @@ const styles = StyleSheet.create({
         fontSize: 25
     },
     container: {
-        height: 650,
+
         alignItems: 'center',
         justifyContent: 'center'
 
@@ -48,9 +57,9 @@ const styles = StyleSheet.create({
     button: {
         textAlign: "center",
         fontSize: 30,
-        padding: 10,
-        width: 150,
-        borderRadius: 20
+        paddingLeft: 100,
+        paddingRight: 100,
+        backgroundColor: '#ff9800'
     },
     input: {
         margin: 20
