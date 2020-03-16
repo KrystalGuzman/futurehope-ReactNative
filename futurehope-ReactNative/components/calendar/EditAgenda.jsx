@@ -14,6 +14,35 @@ const EditAgenda = ({ item, setAgendaItems, agendaItems }) => {
     handleModal();
   };
 
+  const deleteFunction = () => {
+    let target = "";
+    let newState = {};
+    let newArr = [];
+
+    for(let i in agendaItems){
+      for(let j of agendaItems[i]){
+        if(j.id == item.id){
+          target = i;
+        }
+      }
+    }
+    for(let i in agendaItems){
+      if(target == i){
+        agendaItems[i].forEach((ele) => {
+          if(ele.id !== item.id){
+            newArr.push(ele);
+          }
+        })
+      } else {
+        newState = {...newState, [i]:agendaItems[i]};
+      }
+    }
+    setAgendaItems({
+      ...newState, [target]:newArr
+    });
+    setOpen(!open);
+  }
+
   return (
     <View style={{ flexDirection: "row" }}>
       <Icon
@@ -34,9 +63,9 @@ const EditAgenda = ({ item, setAgendaItems, agendaItems }) => {
           size={30}
           color="red"
           style={{ marginLeft: "auto" }}
-          onPress={() => handleModal()}
+          onPress={deleteFunction}
         />
-        <Button title="Done" color="green" onPress={() => handleSubmit()} />
+      <Button title="Done" color="green" onPress={() => handleSubmit()} />
       </Modal>
     </View>
   );

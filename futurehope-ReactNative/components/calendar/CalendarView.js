@@ -11,6 +11,7 @@ const CalendarView = ({ agendaItems, setDate, setAgendaItems }) => {
       function onPress() {
         history.replace("/calendar/addevent");
       }
+
   return (
     <View style={{ flex: 1 }}>
       <Agenda
