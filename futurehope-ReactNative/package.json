@@ -15,7 +15,9 @@
     ]
   },
   "dependencies": {
+    "@expo/vector-icons": "^10.0.6",
     "expo": "~36.0.0",
+    "native-base": "2.13.8",
     "node-libs-react-native": "^1.0.3",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",

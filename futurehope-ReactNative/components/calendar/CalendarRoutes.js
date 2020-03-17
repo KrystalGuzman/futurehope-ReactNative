@@ -8,7 +8,6 @@ import uuid from 'react-native-uuid'
 
 const CalendarRoutes = () => {
 
-
     const [agendaItems, setAgendaItems] = useState({})
 
     React.useEffect(() => {
