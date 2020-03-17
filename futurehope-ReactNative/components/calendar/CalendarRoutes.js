@@ -5,8 +5,8 @@ import { Route, useHistory } from "react-router-native"
 import CalendarView from './CalendarView'
 import AddEvent from './AddEvent'
 import uuid from 'react-native-uuid'
-const CalendarRoutes = () => {
 
+const CalendarRoutes = () => {
 
     const [agendaItems, setAgendaItems] = useState({})
 
@@ -42,13 +42,12 @@ const CalendarRoutes = () => {
     }
 
     return (
-
         <View style={{ flex: 1 }}>
             <Route exact path='/calendar/addevent'><AddEvent submitHandler={submitHandler} /></Route>
-            <Route exact path='/calendar/agenda'><CalendarView agendaItems={agendaItems} /></Route>
+            <Route exact path='/calendar/agenda'><CalendarView agendaItems={agendaItems} setAgendaItems={setAgendaItems}/></Route>
         </View>
-
     )
+
 }
 
 

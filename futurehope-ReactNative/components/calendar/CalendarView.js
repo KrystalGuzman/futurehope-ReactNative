@@ -1,35 +1,40 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, AsyncStorage, Modal, TouchableOpacity, TextInput } from 'react-native';
+import React from "react";
+import { StyleSheet, View, Text } from "react-native";
+import {useHistory}from 'react-router-native'
+import { Agenda } from "react-native-calendars";
 
-import { Agenda } from 'react-native-calendars'
+import AgendaItem from "./AgendaItem";
 
-import { NativeRouter, Route, Link, useHistory } from "react-router-native"
-//import Icon from 'react-native-vector-icons/dist/FontAwesome';
+const CalendarView = ({ agendaItems, setDate, setAgendaItems }) => {
+      const history = useHistory();
 
+      function onPress() {
+        history.replace("/calendar/addevent");
+      }
 
-const CalendarView = ({ agendaItems, setDate }) => {
-
-    const history = useHistory()
-
-    function onPress() {
-        history.replace('/calendar/addevent')
-    }
-    return (
-        <View style={{ flex: 1 }}>
-            <Agenda
-
-                items={agendaItems}
-                renderItem={(item, firstItemInDay) => {
-                    console.log(item)
-                    return (<View style={styles.itemView}><Text style={styles.itemText}>{item.text}</Text></View>);
-                }}
+  return (
+    <View style={{ flex: 1 }}>
+      <Agenda
+        items={{ ...agendaItems }}
+        renderItem={(item, firstItemInDay) => {
+          console.log(item);
+          return (
+            <AgendaItem
+              item={item}
+              setAgendaItems={setAgendaItems}
+              agendaItems={agendaItems}
             />
-            <View style={styles.container}  >
-                <Text style={styles.button} onPress={onPress}>Add an Event</Text>
-            </View>
-        </View>
-    )
-}
+          );
+        }}
+      />
+      <View style={styles.container}>
+        <Text style={styles.button} onPress={onPress}>
+          Add an Event
+        </Text>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
     text: {
@@ -77,4 +82,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default CalendarView
+export default CalendarView;
