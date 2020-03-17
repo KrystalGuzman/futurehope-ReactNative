@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Home from './components/Home'
 import CalendarRoutes from './components/calendar/CalendarRoutes';
 
-import { NativeRouter, Route, Link, Switch } from "react-router-native"
+import { NativeRouter, Route, Link, Switch, useHistory } from "react-router-native"
 import NoteTakingRoutes from './components/NoteTakingRoutes';
 import BottomFooter from './components/BottomFooter';
 

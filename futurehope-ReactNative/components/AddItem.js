@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView,  } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, } from 'react-native';
 import Icon from "react-native-vector-icons/FontAwesome";
 import { widthPercentageToDP, heightPercentageToDP } from '../utils/PercenatageFix';
 
@@ -12,13 +12,13 @@ const AddItem = ({ title, addItem, text, onTextChange, handleModal }) => {
     return (
         <View style={styles.container}>
             <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={80}>
-            <TextInput multiline numberOfLines={10} onChangeText={text => onChangeText(text)} placeholder="Add item..." style={styles.input} onChangeText={onTextChange} value={text} />
+                <TextInput multiline numberOfLines={10} onChangeText={text => onChangeText(text)} placeholder="Add item..." style={styles.input} onChangeText={onTextChange} value={text} />
             </KeyboardAvoidingView>
             <View style={styles.buttonsdesign}>
-            <TouchableOpacity style={styles.button}  >
-                <Text onPress={submitHandler} style={styles.buttonText}>Add Note <Icon name='plus' color='white' size={20} /></Text>
-                <Text onPress={handleModal} style={styles.buttonText}>Cancel <Icon name='close' color='white' size={20} /></Text>
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.button}  >
+                    <Text onPress={submitHandler} style={styles.buttonText}>Add Note <Icon name='plus' color='white' size={20} /></Text>
+                    <Text onPress={handleModal} style={styles.buttonText}>Cancel <Icon name='close' color='white' size={20} /></Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -27,7 +27,7 @@ const AddItem = ({ title, addItem, text, onTextChange, handleModal }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection:'column',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -36,30 +36,30 @@ const styles = StyleSheet.create({
         width: widthPercentageToDP('95%'),
         margin: widthPercentageToDP('2%'),
         fontSize: 16,
-        borderColor:'#eee',
+        borderColor: '#eee',
         borderWidth: widthPercentageToDP('.5%'),
-        textAlignVertical:'top',
-        padding:heightPercentageToDP('1%')
+        textAlignVertical: 'top',
+        padding: heightPercentageToDP('1%')
 
     },
-    buttonsdesign:{
-    
+    buttonsdesign: {
+
     },
     button: {
         backgroundColor: 'white',
         padding: widthPercentageToDP('2%'),
         margin: widthPercentageToDP('1%'),
         width: widthPercentageToDP('99%'),
-        flexDirection:"row",
-        justifyContent:"space-between",
+        flexDirection: "row",
+        justifyContent: "space-between",
     },
     buttonText: {
         color: 'white',
         fontSize: 20,
         textAlign: 'center',
-        backgroundColor:'#FFB23D',
-        padding:widthPercentageToDP('2%'),
-        width:widthPercentageToDP('45%')
+        backgroundColor: '#FFB23D',
+        padding: widthPercentageToDP('2%'),
+        width: widthPercentageToDP('45%')
     }
 });
 

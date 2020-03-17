@@ -25,12 +25,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         height: heightPercentageToDP('9%'),
         paddingTop: heightPercentageToDP('4%'),
+        paddingBottom: heightPercentageToDP('1%'),
         alignItems: 'center',
-        backgroundColor: 'white',
+        backgroundColor: '#eee',
         justifyContent: 'space-between'
     },
     text: {
-        color: '#ff9800',
+
         fontSize: 25,
         textAlign: 'center'
     },
