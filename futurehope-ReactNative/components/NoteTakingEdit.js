@@ -7,6 +7,10 @@ import {
   TouchableOpacity
 } from "react-native";
 import { useParams } from "react-router-native";
+import {
+  widthPercentageToDP,
+  heightPercentageToDP
+} from "../utils/PercenatageFix";
 
 const EditItem = ({ items, editItem, edit, editChange }) => {
   const { id } = useParams();
@@ -23,47 +27,51 @@ const EditItem = ({ items, editItem, edit, editChange }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.top}>
-        <Text style={styles.title}>{target.title}</Text>
-        {!editNote ? (
-          <Text style={styles.edit} onPress={() => setEditNote(true)}>
-            Edit
-          </Text>
-        ) : null}
-      </View>
+      <Text style={styles.title}>{target.title}</Text>
       {!target.content ? (
-        <Text style={styles.placeHolder}>Add details here...</Text>
+        <Text style={editNote ? styles.invis : styles.placeHolder}>
+          Add details here...
+        </Text>
       ) : (
-        <Text style={styles.contents}>{target.content}</Text>
+        <Text style={editNote ? styles.invis : styles.contents}>
+          {target.content}
+        </Text>
       )}
-{/*       <TextInput
-        placeholder="Add details here..."
-        style={styles.input}
+      <TextInput
+        placeholder={target.content || "Add details here..."}
+        style={editNote ? styles.input : styles.invis}
         onChangeText={editChange}
         value={edit}
-      /> */}
+      />
       <TouchableOpacity
-        style={styles.button}
-        onPress={() => editItem(edit, target.id)}
+        style={editNote ? styles.button : styles.invis}
+        onPress={() => {
+          editItem(edit, target.id);
+          setEditNote(false);
+        }}
       >
         <Text style={styles.buttonText}>Set Details</Text>
       </TouchableOpacity>
-      
-      <TouchableOpacity style={styles.editContentBtn}>
-          <Text style={styles.contentBtnText}>
-              Edit Content
-          </Text>
+
+      <TouchableOpacity
+        style={editNote ? styles.invis : styles.editContentBtn}
+        onPress={() => setEditNote(true)}
+      >
+        <Text style={styles.contentBtnText}>Edit Content</Text>
       </TouchableOpacity>
-      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    height: heightPercentageToDP("82%"),
     textAlign: "left",
     marginLeft: 10,
-    marginRight: 10,
-    flex:1,
+    marginRight: 10
+  },
+  invis: {
+    display: "none"
   },
   top: {
     display: "flex",
@@ -93,34 +101,35 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   button: {
+    width: "100%",
     backgroundColor: "#FFB23D",
-    padding: 9,
-    margin: 5,
-    width: 200,
-    borderRadius: 20
+    position: "absolute",
+    bottom: 10
   },
   buttonText: {
     color: "white",
-    fontSize: 20,
-    textAlign: "center"
+    textAlign: "center",
+    fontWeight: "bold",
+    padding: 10,
+    fontSize: 20
   },
   contents: {
     padding: 7,
-    color:'grey',
+    color: "grey",
     fontSize: 20
   },
-  editContentBtn:{
-      width:'100%',
-      backgroundColor:'#FFB23D',
-      position:'absolute',
-      bottom:10
+  editContentBtn: {
+    width: "100%",
+    backgroundColor: "#FFB23D",
+    position: "absolute",
+    bottom: 10
   },
-  contentBtnText:{
-      color:'white',
-      textAlign:'center',
-      fontWeight:'bold',
-      padding:10,
-      fontSize:20
+  contentBtnText: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "bold",
+    padding: 10,
+    fontSize: 20
   }
 });
 
