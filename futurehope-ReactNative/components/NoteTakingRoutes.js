@@ -82,6 +82,7 @@ function NoteTakingRoutes() {
           editItem={editItem}
           edit={edit}
           editChange={editChange}
+          deleteItem={deleteItem}
         />
       </Route>
     </View>

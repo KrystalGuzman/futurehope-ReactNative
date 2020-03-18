@@ -26,12 +26,13 @@ const styles = StyleSheet.create({
         paddingTop: heightPercentageToDP('4%'),
         paddingBottom: heightPercentageToDP('1%'),
         alignItems: 'center',
-        backgroundColor: '#eee',
+        borderBottomColor: '#eee',
+        borderBottomWidth: 1,
         justifyContent: 'space-between'
     },
     text: {
-
-        fontSize: 25,
+        fontWeight: 'bold',
+        fontSize: 18,
         textAlign: 'center'
     },
     icon: {

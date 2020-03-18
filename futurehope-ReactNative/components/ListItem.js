@@ -13,10 +13,10 @@ const ListItem = ({ item, deleteItem }) => {
         history.push(`/notetaking/noteedit/${item.id}`)
     }
     return (
-        <TouchableOpacity style={styles.listItem}>
+        <TouchableOpacity onPress={onPress} style={styles.listItem}>
             <View style={styles.listItemView}>
-                <Link to={`/notetaking/noteedit/${item.id}`}><Text style={styles.listItemText}>{item.title}</Text></Link>
-                <Icon onPress={onPress} color='#ff9800' size={20} name='chevron-right' />
+                <Text style={styles.listItemText}>{item.title}</Text>
+                <Icon color='#ff9800' size={20} name='chevron-right' />
             </View>
         </TouchableOpacity>
 

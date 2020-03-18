@@ -4,45 +4,58 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  KeyboardAvoidingView
 } from "react-native";
-import { useParams } from "react-router-native";
+import { useParams, useHistory } from "react-router-native";
 import {
   widthPercentageToDP,
   heightPercentageToDP
 } from "../utils/PercenatageFix";
+import Icon from "react-native-vector-icons/FontAwesome";
 
-const EditItem = ({ items, editItem, edit, editChange }) => {
+const EditItem = ({ items, editItem, edit, editChange, deleteItem }) => {
   const { id } = useParams();
-
+  const history = useHistory()
   const [target, setTarget] = useState({});
   const [editNote, setEditNote] = useState(false);
   React.useEffect(() => {
     items.forEach(e => {
       if (e.id === id) {
         setTarget(e);
+        editChange(target.content)
       }
     });
-  }, [items]);
+  }, [items, editNote]);
+
+  const deletePress = () => {
+    deleteItem(id)
+    history.push("/notetaking/noteview")
+  }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{target.title}</Text>
-      {!target.content ? (
-        <Text style={editNote ? styles.invis : styles.placeHolder}>
-          Add details here...
+      <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={50}>
+        <View style={{ flexDirection: 'row', justifyContent: "space-between", alignItems: 'center' }}>
+          <Text style={styles.title}>{target.title}</Text>
+          <Icon style={{ marginRight: widthPercentageToDP('2%') }} name='trash' color='grey' size={25} onPress={deletePress} />
+        </View>
+        {!target.content ? (
+          <Text style={editNote ? styles.invis : styles.placeHolder}>
+            Add details here...
         </Text>
-      ) : (
-        <Text style={editNote ? styles.invis : styles.contents}>
-          {target.content}
-        </Text>
-      )}
-      <TextInput
-        placeholder={target.content || "Add details here..."}
-        style={editNote ? styles.input : styles.invis}
-        onChangeText={editChange}
-        value={edit}
-      />
+        ) : (
+            <Text style={editNote ? styles.invis : styles.contents}>
+              {target.content}
+            </Text>
+          )}
+        <TextInput
+          placeholder="Add details here..."
+          style={editNote ? styles.input : styles.invis}
+          onChangeText={editChange}
+          value={edit}
+        />
+      </KeyboardAvoidingView>
       <TouchableOpacity
         style={editNote ? styles.button : styles.invis}
         onPress={() => {
@@ -67,8 +80,8 @@ const styles = StyleSheet.create({
   container: {
     height: heightPercentageToDP("82%"),
     textAlign: "left",
-    marginLeft: 10,
-    marginRight: 10
+    marginLeft: widthPercentageToDP('2%'),
+    marginRight: widthPercentageToDP('2%')
   },
   invis: {
     display: "none"
@@ -84,7 +97,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 40,
     fontWeight: "bold",
-    margin: 20
+    padding: widthPercentageToDP('1%'),
+    marginTop: heightPercentageToDP('1%')
   },
   edit: {
     color: "#FFB23D",
@@ -93,28 +107,33 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   placeHolder: {
+    marginLeft: widthPercentageToDP('.5%'),
     color: "grey"
   },
   input: {
-    height: 60,
-    padding: 8,
-    fontSize: 16
+    height: heightPercentageToDP('60%'),
+    textAlignVertical: 'top',
+    fontSize: 16,
+    borderColor: '#eee',
+    borderWidth: 1,
+    padding: widthPercentageToDP('1%'),
+    borderRadius: 5
   },
   button: {
     width: "100%",
     backgroundColor: "#FFB23D",
     position: "absolute",
-    bottom: 10
+    bottom: heightPercentageToDP('1%')
   },
   buttonText: {
     color: "white",
     textAlign: "center",
     fontWeight: "bold",
-    padding: 10,
+    padding: widthPercentageToDP('2%'),
     fontSize: 20
   },
   contents: {
-    padding: 7,
+    padding: widthPercentageToDP('1%'),
     color: "grey",
     fontSize: 20
   },
@@ -122,13 +141,13 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#FFB23D",
     position: "absolute",
-    bottom: 10
+    bottom: heightPercentageToDP('1%')
   },
   contentBtnText: {
     color: "white",
     textAlign: "center",
     fontWeight: "bold",
-    padding: 10,
+    padding: widthPercentageToDP('2%'),
     fontSize: 20
   }
 });

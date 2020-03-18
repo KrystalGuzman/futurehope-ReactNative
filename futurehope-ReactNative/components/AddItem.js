@@ -11,13 +11,17 @@ const AddItem = ({ title, addItem, text, onTextChange, handleModal }) => {
 
     return (
         <View style={styles.container}>
+
             <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={80}>
+                <View style={styles.container}>
+                    <Text style={styles.text}>Adding A New Note</Text>
+                </View>
                 <TextInput multiline numberOfLines={10} onChangeText={text => onChangeText(text)} placeholder="Add item..." style={styles.input} onChangeText={onTextChange} value={text} />
             </KeyboardAvoidingView>
             <View style={styles.buttonsdesign}>
                 <TouchableOpacity style={styles.button}  >
-                    <Text onPress={submitHandler} style={styles.buttonText}>Add Note <Icon name='plus' color='white' size={20} /></Text>
-                    <Text onPress={handleModal} style={styles.buttonText}>Cancel <Icon name='close' color='white' size={20} /></Text>
+                    <Text onPress={handleModal} style={styles.buttonText}>Cancel </Text>
+                    <Text onPress={submitHandler} style={styles.buttonText}>Add Note </Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -29,20 +33,24 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: heightPercentageToDP('1%')
     },
     input: {
-        height: heightPercentageToDP('85%'),
+        height: heightPercentageToDP('80%'),
         width: widthPercentageToDP('95%'),
         margin: widthPercentageToDP('2%'),
         fontSize: 16,
         borderColor: '#eee',
         borderWidth: widthPercentageToDP('.5%'),
+        borderRadius: 5,
         textAlignVertical: 'top',
         padding: heightPercentageToDP('1%')
 
     },
-    buttonsdesign: {
+    text: {
+        fontSize: 20,
+        textAlign: 'center',
 
     },
     button: {

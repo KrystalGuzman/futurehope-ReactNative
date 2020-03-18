@@ -38,12 +38,13 @@ const styles = StyleSheet.create({
 
     },
     flatview: {
-        maxHeight: heightPercentageToDP('72%'),
-        height: heightPercentageToDP('72%')
+        maxHeight: heightPercentageToDP('70%'),
+        height: heightPercentageToDP('70%')
     },
 
     plus: {
-        marginLeft: widthPercentageToDP('80%')
+        marginLeft: widthPercentageToDP('80%'),
+        marginBottom: heightPercentageToDP('2%')
     }
 
 });

@@ -42,16 +42,17 @@ const BottomFooter = () => {
 
 const styles = StyleSheet.create({
   buttonText: {
-    fontSize: 20,
+    fontSize: 16,
     textAlign: 'center',
+
   },
   inactiveButton: {
-
+    marginTop: 0
   },
   activeButton: {
-
-    borderTopColor: '#ff9800',
-    borderTopWidth: 2
+    marginTop: 0,
+    borderBottomColor: '#ff9800',
+    borderBottomWidth: 2
   },
   footerMain: {
     height: heightPercentageToDP('9%'),
@@ -59,8 +60,10 @@ const styles = StyleSheet.create({
 
   },
   footerTab: {
-    backgroundColor: '#eee',
-    paddingTop: 1
+    backgroundColor: 'white',
+    marginTop: 0,
+    borderTopColor: '#eee',
+    borderTopWidth: 1
   }
 });
 
