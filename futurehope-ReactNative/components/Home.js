@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 
     },
     container: {
-        height: heightPercentageToDP('82%'),
+        height: heightPercentageToDP('82.5%'),
         alignItems: 'center',
         justifyContent: 'center'
     }
