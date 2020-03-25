@@ -1,28 +1,26 @@
-import React from "react";
+import React,{useState} from "react";
 import { StyleSheet, View, Text } from "react-native";
 import {useHistory}from 'react-router-native'
 import { Agenda } from "react-native-calendars";
 
 import AgendaItem from "./AgendaItem";
 
-const CalendarView = ({ agendaItems, setDate, setAgendaItems }) => {
+const CalendarView = ({ agendaItems, setAgendaItems }) => {
+      const [date,setDate] = useState(Date())
       const history = useHistory();
-
-      function onPress() {
-        history.replace("/calendar/addevent");
-      }
-
+      const onPress = () => history.replace("/calendar/addevent");
   return (
     <View style={{ flex: 1 }}>
       <Agenda
-        items={{ ...agendaItems }}
-        renderItem={(item, firstItemInDay) => {
-          console.log(item);
+        items={{[date]:agendaItems[date] ? [...agendaItems[date]] : [] }}
+        loadItemsForMonth={(date)=> setDate(date.dateString)}
+        renderItem={item => {
           return (
             <AgendaItem
               item={item}
               setAgendaItems={setAgendaItems}
               agendaItems={agendaItems}
+              date={date}
             />
           );
         }}
