@@ -9,17 +9,6 @@ import {
 
 import AgendaItem from "./AgendaItem";
 
-<<<<<<< HEAD
-const CalendarView = ({ agendaItems, setDate, setAgendaItems }) => {
-      const history = useHistory();
-
-      function onPress() {
-        history.replace("/calendar/addevent");
-      }
-
-      // console.log("agendaItems", agendaItems);
-
-=======
 const CalendarView = ({ agendaItems, setAgendaItems }) => {
   const [date, setDate] = useState(Date());
   const history = useHistory();
@@ -33,7 +22,6 @@ const CalendarView = ({ agendaItems, setAgendaItems }) => {
     return dates;
   });
   console.log(dates);
->>>>>>> f90625039aed9763b7f2bbef8954bb605db84afa
   return (
     <View style={{ flex: 1 }}>
       <Agenda
@@ -61,53 +49,6 @@ const CalendarView = ({ agendaItems, setAgendaItems }) => {
 };
 
 const styles = StyleSheet.create({
-<<<<<<< HEAD
-    text: {
-        padding: 15,
-        backgroundColor: '#f8f8f8',
-        borderBottomWidth: 1,
-        borderColor: '#eee',
-        fontSize: 25
-    },
-    container: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingBottom:heightPercentageToDP('.5%'),
-
-
-    },
-    buttonContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        margin: 20,
-
-
-    },
-    modal: {
-        width: 200
-    },
-    button: {
-        textAlign: "center",
-        fontSize: 26.5,
-        paddingLeft: widthPercentageToDP('10%'),
-        paddingRight: widthPercentageToDP('10%'),
-        backgroundColor: '#ff9800'
-    },
-    input: {
-        margin: 20
-    },
-    itemView: {
-        height: 100,
-        borderBottomColor: 'black',
-        borderBottomWidth: 2,
-        justifyContent: "space-around",
-        marginRight: 20,
-        marginBottom: 5
-    },
-    itemText: {
-        fontSize: 18
-    }
-=======
   text: {
     padding: 15,
     backgroundColor: "#f8f8f8",
@@ -149,7 +90,6 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 18
   }
->>>>>>> f90625039aed9763b7f2bbef8954bb605db84afa
 });
 
 export default CalendarView;
