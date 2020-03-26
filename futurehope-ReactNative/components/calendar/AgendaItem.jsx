@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import EditAgenda from "./EditAgenda";
+import { heightPercentageToDP, widthPercentageToDP } from "../../utils/PercenatageFix";
 
 const AgendaItem = ({ item, setAgendaItems, agendaItems }) => {
   return (
@@ -48,14 +49,14 @@ const styles = StyleSheet.create({
     margin: 20
   },
   itemView: {
-    height: 100,
+    maxHeight: heightPercentageToDP('4%'),
     borderBottomColor: "black",
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
     justifyContent: "space-around",
-    marginRight: 20,
-    marginBottom: 5,
+    marginRight: widthPercentageToDP('2%'),
+    marginTop: heightPercentageToDP('8%'),
     flexDirection: "row",
-    alignContent: "center"
+    
   },
   itemText: {
     fontSize: 18
