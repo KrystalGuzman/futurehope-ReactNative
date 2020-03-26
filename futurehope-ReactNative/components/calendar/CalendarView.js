@@ -13,6 +13,8 @@ const CalendarView = ({ agendaItems, setDate, setAgendaItems }) => {
         history.replace("/calendar/addevent");
       }
 
+      // console.log("agendaItems", agendaItems);
+
   return (
     <View style={{ flex: 1 }}>
       <Agenda
@@ -49,14 +51,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingBottom:heightPercentageToDP('.5%'),
-        
-        
+
+
     },
     buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-around',
         margin: 20,
-    
+
 
     },
     modal: {

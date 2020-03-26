@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { useHistory } from "react-router-native"
 import {heightPercentageToDP, widthPercentageToDP} from "../../utils/PercenatageFix";
+import { useForm, Controller } from "react-hook-form";
+
 const AddEvent = ({ date, submitHandler }) => {
     const history = useHistory()
 
@@ -10,6 +12,9 @@ const AddEvent = ({ date, submitHandler }) => {
     const [year, setYear] = useState('')
     const [day, setDay] = useState('')
     const [month, setMonth] = useState('')
+
+    const { register, control, handleSubmit, errors } = useForm();
+
     const mockSubmit = () => {
         submitHandler(year, month, day, time, mentor)
         history.replace('/calendar/agenda')
@@ -33,15 +38,46 @@ const AddEvent = ({ date, submitHandler }) => {
     return (
         <View style={styles.container} >
             <View style={styles.dateContainer}>
-                <Text>Month:</Text><TextInput style={styles.dateInput} onChangeText={onMonthChange} value={month}  maxLength={2} placeholder='Ex: 01' />
-                <Text>Day:</Text><TextInput style={styles.dateInput} onChangeText={onDayChange} value={day} maxLength={2} placeholder='Ex: 01' />
-                <Text>Year:</Text><TextInput style={styles.dateInput} onChangeText={onYearChange} value={year} maxLength={4} placeholder='Ex: 2020' />
-            </View >
+                <Text>Month:</Text>
+                <Controller
+                  as={TextInput}
+                  control={control}
+                  style={styles.dateInput}
+                  name="month"
+                  onChangeText={onMonthChange}
+                  value={month}
+                  placeholder='Ex: 01'
+                  rules={register({ required: true, min: 2, max: 2, pattern: /[0-9]/g })}
+                  />
+                <Text>Day:</Text>
+                <Controller
+                  as={TextInput}
+                  control={control}
+                  style={styles.dateInput}
+                  name="day"
+                  onChangeText={onDayChange}
+                  value={day}
+                  placeholder='Ex: 01'
+                  rules={register({ required: true, min: 2, max: 2, pattern: /[0-9]/g })}
+                  />
+                <Text>Year:</Text>
+                <Controller
+                  as={TextInput}
+                  control={control}
+                  style={styles.dateInput}
+                  name="year"
+                  onChangeText={onYearChange}
+                  value={year}
+                  placeholder='Ex: 2020'
+                  rules={register({ required: true, min: 4, max: 4, pattern: /[0-9]/g })}
+                  />
+            </View>
+            {errors.month || errors.day || errors.year ? <Text style={{textAlign: "center", color: "red"}}>MM-DD-YYYY format is required.</Text> : <View></View> }
             <Text style={styles.text}>Mentor:</Text>
             <TextInput style={styles.input} onChangeText={onMentorChange} value={mentor} placeholder='Name of Mentor'/>
             <Text style={styles.text}>Time:</Text>
             <TextInput style={styles.input} onChangeText={onTimeChange} value={time} placeholder='Ex: 1:00pm' />
-            <Text style={styles.button} onPress={mockSubmit}>Add This Meeting</Text>
+            <Text style={styles.button} onPress={handleSubmit(mockSubmit)}>Add This Meeting</Text>
         </View>
     )
 }
@@ -71,7 +107,7 @@ const styles = StyleSheet.create({
 
     },
     modal: {
-        
+
     },
     button: {
         textAlign: "center",
