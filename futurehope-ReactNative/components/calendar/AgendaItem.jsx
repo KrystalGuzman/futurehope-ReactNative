@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from "react-native";
 import EditAgenda from "./EditAgenda";
 import { heightPercentageToDP, widthPercentageToDP } from "../../utils/PercenatageFix";
 
-const AgendaItem = ({ item, setAgendaItems, agendaItems }) => {
+const AgendaItem = ({ item, setAgendaItems, agendaItems, date }) => {
   return (
     <View style={styles.itemView}>
       <Text style={styles.itemText}>{item.text}</Text>
@@ -12,6 +12,7 @@ const AgendaItem = ({ item, setAgendaItems, agendaItems }) => {
         item={item}
         setAgendaItems={setAgendaItems}
         agendaItems={agendaItems}
+        date={date}
       />
     </View>
   );
