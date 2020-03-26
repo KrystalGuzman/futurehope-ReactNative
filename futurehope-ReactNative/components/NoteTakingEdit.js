@@ -36,9 +36,9 @@ const EditItem = ({ items, editItem, edit, editChange, deleteItem }) => {
   return (
     <View style={styles.container}>
       <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={50}>
-        <View style={{ flexDirection: 'row', justifyContent: "space-between", alignItems: 'center' }}>
+        <View style={{ flexDirection: 'row', justifyContent: "space-between", alignItems: 'center', maxWidth: widthPercentageToDP('90%') }}>
           <Text style={styles.title}>{target.title}</Text>
-          <Icon style={{ marginRight: widthPercentageToDP('2%') }} name='trash' color='grey' size={25} onPress={deletePress} />
+          <Icon  name='trash' color='grey' size={25} onPress={deletePress} />
         </View>
         {!target.content ? (
           <Text style={editNote ? styles.invis : styles.placeHolder}>
@@ -81,7 +81,8 @@ const styles = StyleSheet.create({
     height: heightPercentageToDP("82%"),
     textAlign: "left",
     marginLeft: widthPercentageToDP('2%'),
-    marginRight: widthPercentageToDP('2%')
+    marginRight: widthPercentageToDP('2%'),
+    // maxWidth:widthPercentageToDP('98%')
   },
   invis: {
     display: "none"
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
     fontSize: 30
   },
   title: {
-    fontSize: 40,
+    fontSize: widthPercentageToDP('10%'),
     fontWeight: "bold",
     padding: widthPercentageToDP('1%'),
     marginTop: heightPercentageToDP('1%')

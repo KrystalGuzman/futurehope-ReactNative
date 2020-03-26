@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { useHistory } from "react-router-native"
+import {heightPercentageToDP, widthPercentageToDP} from "../../utils/PercenatageFix";
 const AddEvent = ({ date, submitHandler }) => {
     const history = useHistory()
 
@@ -30,23 +31,23 @@ const AddEvent = ({ date, submitHandler }) => {
     }
 
     return (
-        <View >
+        <View style={styles.container} >
             <View style={styles.dateContainer}>
-                <Text>Month:</Text><TextInput style={styles.dateInput} onChangeText={onMonthChange} value={month} />
-                <Text>Day:</Text><TextInput style={styles.dateInput} onChangeText={onDayChange} value={day} />
-                <Text>Year:</Text><TextInput style={styles.dateInput} onChangeText={onYearChange} value={year} />
+                <Text>Month:</Text><TextInput style={styles.dateInput} onChangeText={onMonthChange} value={month}  maxLength={2} placeholder='Ex: 01' />
+                <Text>Day:</Text><TextInput style={styles.dateInput} onChangeText={onDayChange} value={day} maxLength={2} placeholder='Ex: 01' />
+                <Text>Year:</Text><TextInput style={styles.dateInput} onChangeText={onYearChange} value={year} maxLength={4} placeholder='Ex: 2020' />
             </View >
             <Text style={styles.text}>Mentor:</Text>
-            <TextInput style={styles.input} onChangeText={onMentorChange} value={mentor} />
+            <TextInput style={styles.input} onChangeText={onMentorChange} value={mentor} placeholder='Name of Mentor'/>
             <Text style={styles.text}>Time:</Text>
-            <TextInput style={styles.input} onChangeText={onTimeChange} value={time} />
+            <TextInput style={styles.input} onChangeText={onTimeChange} value={time} placeholder='Ex: 1:00pm' />
             <Text style={styles.button} onPress={mockSubmit}>Add This Meeting</Text>
         </View>
     )
 }
 const styles = StyleSheet.create({
     text: {
-        padding: 15,
+        padding: 10,
         textAlign: 'center',
         backgroundColor: '#f8f8f8',
         borderBottomWidth: 1,
@@ -55,36 +56,44 @@ const styles = StyleSheet.create({
     },
     container: {
 
-        alignItems: 'center',
-        justifyContent: 'center'
-
+        // alignItems: 'center',
+        // justifyContent: 'center',
+        maxHeight:heightPercentageToDP('100%'),
+        marginTop:heightPercentageToDP('1%')
     },
     dateContainer: {
         alignItems: 'center',
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        margin: 20
+        justifyContent: 'space-evenly',
+        marginTop: heightPercentageToDP('1%'),
+        marginBottom: heightPercentageToDP('1%'),
+        maxWidth:widthPercentageToDP('99%')
 
     },
     modal: {
-        width: 200
+        
     },
     button: {
         textAlign: "center",
-        fontSize: 30,
-        padding: 10,
-        backgroundColor: '#ff9800'
+        fontSize: 25,
+        padding: 1,
+        backgroundColor: '#ff9800',
+        marginRight:widthPercentageToDP('3%'),
+        marginLeft:widthPercentageToDP('3%'),
+        marginTop:heightPercentageToDP('10%'),
+        maxWidth:widthPercentageToDP('100%'),
     },
     input: {
-        margin: 20,
+        margin: heightPercentageToDP('5.5%'),
         borderColor: 'lightgrey',
         borderWidth: 2
     },
     dateInput: {
-        margin: 20,
+        marginTop: heightPercentageToDP('2%'),
+        marginBottom:heightPercentageToDP('2%'),
         borderColor: 'lightgrey',
         borderWidth: 2,
-        width: 50
+        width: widthPercentageToDP('15%')
     },
     itemView: {
         height: 100,

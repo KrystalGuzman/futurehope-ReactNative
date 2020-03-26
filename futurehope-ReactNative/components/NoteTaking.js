@@ -22,7 +22,7 @@ const NoteTaking = ({ items, deleteItem, addItem, text, onTextChange }) => {
                     renderItem={({ item }) => <ListItem item={item} deleteItem={deleteItem} />}
                 />
             </View>
-            <Icon style={styles.plus} onPress={handleModal} color='#ff9800' size={70} name='circle-with-plus' />
+            <Icon style={styles.plus} onPress={handleModal} color='#ff9800' size={60} name='circle-with-plus' />
 
             <Modal
                 animationType="fade"
@@ -35,16 +35,17 @@ const NoteTaking = ({ items, deleteItem, addItem, text, onTextChange }) => {
 }
 const styles = StyleSheet.create({
     container: {
-
+        maxHeight:heightPercentageToDP('82.5%'),
+       
     },
     flatview: {
         maxHeight: heightPercentageToDP('70%'),
-        height: heightPercentageToDP('70%')
+        height: heightPercentageToDP('77%')
     },
 
     plus: {
-        marginLeft: widthPercentageToDP('80%'),
-        marginBottom: heightPercentageToDP('2%')
+        marginLeft: widthPercentageToDP('78%'),
+    
     }
 
 });

@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { useHistory } from "react-router-native";
 import { Agenda } from "react-native-calendars";
+import {
+  widthPercentageToDP,
+  heightPercentageToDP
+} from "../../utils/PercenatageFix";
 
 import AgendaItem from "./AgendaItem";
 
@@ -54,7 +58,8 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingBottom: heightPercentageToDP(".5%")
   },
   buttonContainer: {
     flexDirection: "row",
@@ -66,9 +71,9 @@ const styles = StyleSheet.create({
   },
   button: {
     textAlign: "center",
-    fontSize: 30,
-    paddingLeft: 100,
-    paddingRight: 100,
+    fontSize: 26.5,
+    paddingLeft: widthPercentageToDP("10%"),
+    paddingRight: widthPercentageToDP("10%"),
     backgroundColor: "#ff9800"
   },
   input: {

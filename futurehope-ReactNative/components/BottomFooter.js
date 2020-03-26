@@ -55,15 +55,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2
   },
   footerMain: {
-    height: heightPercentageToDP('9%'),
-
+maxHeight:heightPercentageToDP('100%')
 
   },
   footerTab: {
     backgroundColor: 'white',
-    marginTop: 0,
     borderTopColor: '#eee',
-    borderTopWidth: 1
+    borderTopWidth: widthPercentageToDP('.5%'),
+
   }
 });
 
