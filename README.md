@@ -1,6 +1,6 @@
 
 
-# 1️⃣ Title of project goes here
+# 1️⃣ School in the Sky (mobile app)
 
 1️⃣ You can find the deployed project at N/A
 
@@ -49,16 +49,15 @@ This is a simple companion app for the School in the Sky that allows students to
 
 #### React-Native
 
-🚫 Why did you choose this framework?
+
 
 -    Easy to use
 -    Allows simultaneous development of android and iphone apps 
 
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
 
-#### Front end deployed to `🚫insert service here`
 
+#### Front end deployed to `not yet deployed`
 #### [Back end] built using:
 
 #### This app uses asyncStorage there is no backend
