@@ -1,18 +1,25 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-import {Link} from "react-router-native";
+import { Link, useHistory } from "react-router-native";
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { widthPercentageToDP } from '../utils/PercenatageFix';
 
 const ListItem = ({ item, deleteItem }) => {
+    const history = useHistory()
+
+    function onPress() {
+        history.push(`/notetaking/noteedit/${item.id}`)
+    }
     return (
-        <TouchableOpacity style={styles.listItem}>
+        <TouchableOpacity onPress={onPress} style={styles.listItem}>
             <View style={styles.listItemView}>
-                <Link to={`/noteedit/${item.id}`}><Text style={styles.listItemText}>{item.title}</Text></Link>
-                <Icon onPress={() => deleteItem(item.id)} color='red' size={32} name='times-circle' />
+                <Text style={styles.listItemText}>{item.title}</Text>
+                <Icon color='#ff9800' size={20} name='chevron-right' />
             </View>
         </TouchableOpacity>
+
     )
 }
 
@@ -20,9 +27,10 @@ const ListItem = ({ item, deleteItem }) => {
 const styles = StyleSheet.create({
     listItem: {
         padding: 15,
-        backgroundColor: '#f8f8f8',
+        backgroundColor: '#fff',
         borderBottomWidth: 1,
-        borderColor: '#eee'
+        borderColor: '#eee',
+        borderWidth: 1
     },
     listItemView: {
         flexDirection: 'row',
@@ -31,7 +39,7 @@ const styles = StyleSheet.create({
     },
     listItemText: {
         fontSize: 18,
-        width: 360,
+        width: widthPercentageToDP('83%'),
         maxWidth: 360
     }
 });
