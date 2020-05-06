@@ -11,14 +11,16 @@ const firebaseConfig = {
     appId: "1:586160685845:web:926a03982f90efa2"
   }
 
+  // window.addEventListener = x => x;
+
 // Initialize Firebase
 let Firebase = firebase.initializeApp(firebaseConfig)
 
 export const db = firebase.firestore()
 
 // avoid deprecated warnings
-db.settings({
-	timestampsInSnapshots: true
-})
+// db.settings({
+// 	timestampsInSnapshots: true
+// })
 
 export default Firebase

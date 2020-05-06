@@ -2,8 +2,8 @@ import React from 'react'
 import { View, TextInput, StyleSheet, TouchableOpacity, Text, Button } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { updateEmail, updatePassword, login, getUser } from '../actions/user'
-import Firebase from '../config/Firebase'
+import { updateEmail, updatePassword, login, getUser } from '../../actions/user'
+import Firebase from '../../config/Firebase'
 
 class Login extends React.Component {
 	componentDidMount = () => {
