@@ -38,12 +38,12 @@ const EditItem = ({ items, editItem, edit, editChange, deleteItem }) => {
       <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={50}>
         <View style={{ flexDirection: 'row', justifyContent: "space-between", alignItems: 'center', maxWidth: widthPercentageToDP('90%') }}>
           <Text style={styles.title}>{target.title}</Text>
-          <Icon  name='trash' color='grey' size={25} onPress={deletePress} />
+          <Icon name='trash' color='grey' size={25} onPress={deletePress} />
         </View>
         {!target.content ? (
           <Text style={editNote ? styles.invis : styles.placeHolder}>
             Add details here...
-        </Text>
+          </Text>
         ) : (
             <Text style={editNote ? styles.invis : styles.contents}>
               {target.content}
@@ -82,7 +82,6 @@ const styles = StyleSheet.create({
     textAlign: "left",
     marginLeft: widthPercentageToDP('2%'),
     marginRight: widthPercentageToDP('2%'),
-    // maxWidth:widthPercentageToDP('98%')
   },
   invis: {
     display: "none"
