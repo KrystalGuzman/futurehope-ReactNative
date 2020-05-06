@@ -1,73 +1,156 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import { useParams } from 'react-router-native'
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView
+} from "react-native";
+import { useParams, useHistory } from "react-router-native";
+import {
+  widthPercentageToDP,
+  heightPercentageToDP
+} from "../utils/PercenatageFix";
+import Icon from "react-native-vector-icons/FontAwesome";
 
-const EditItem = ({ items, editItem, edit, editChange }) => {
-    const { id } = useParams()
+const EditItem = ({ items, editItem, edit, editChange, deleteItem }) => {
+  const { id } = useParams();
+  const history = useHistory()
+  const [target, setTarget] = useState({});
+  const [editNote, setEditNote] = useState(false);
+  React.useEffect(() => {
+    items.forEach(e => {
+      if (e.id === id) {
+        setTarget(e);
+        editChange(target.content)
+      }
+    });
+  }, [items, editNote]);
 
-    const [target, setTarget] = useState({})
+  const deletePress = () => {
+    deleteItem(id)
+    history.push("/notetaking/noteview")
+  }
 
-    React.useEffect(() => {
-        items.forEach(e => {
-
-            if (e.id === id) {
-                setTarget(e)
-            }
-        })
-    }, [items])
-
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>{target.title}</Text>
-            <TextInput placeholder="Add details here..." style={styles.input} onChangeText={editChange} value={edit} />
-            <TouchableOpacity style={styles.button} onPress={() => editItem(edit, target.id)}>
-                <Text style={styles.buttonText}>Set Details</Text>
-            </TouchableOpacity>
-            <Text style={styles.title2}>Details</Text>
-            <Text style={styles.contents}>{target.content}</Text>
+  return (
+    <View style={styles.container}>
+      <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={50}>
+        <View style={{ flexDirection: 'row', justifyContent: "space-between", alignItems: 'center', maxWidth: widthPercentageToDP('90%') }}>
+          <Text style={styles.title}>{target.title}</Text>
+          <Icon  name='trash' color='grey' size={25} onPress={deletePress} />
         </View>
-    );
+        {!target.content ? (
+          <Text style={editNote ? styles.invis : styles.placeHolder}>
+            Add details here...
+        </Text>
+        ) : (
+            <Text style={editNote ? styles.invis : styles.contents}>
+              {target.content}
+            </Text>
+          )}
+        <TextInput
+          placeholder="Add details here..."
+          style={editNote ? styles.input : styles.invis}
+          onChangeText={editChange}
+          value={edit}
+        />
+      </KeyboardAvoidingView>
+      <TouchableOpacity
+        style={editNote ? styles.button : styles.invis}
+        onPress={() => {
+          editItem(edit, target.id);
+          setEditNote(false);
+        }}
+      >
+        <Text style={styles.buttonText}>Set Details</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={editNote ? styles.invis : styles.editContentBtn}
+        onPress={() => setEditNote(true)}
+      >
+        <Text style={styles.contentBtnText}>Edit Content</Text>
+      </TouchableOpacity>
+    </View>
+  );
 };
 
-
 const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    title2: {
-        fontSize: 30
-    },
-    title: {
-        fontSize: 40,
-        margin: 20
-    },
-    input: {
-        height: 60,
-        padding: 8,
-        fontSize: 16
-    },
-    button: {
-        backgroundColor: '#FFB23D',
-        padding: 9,
-        margin: 5,
-        width: 200,
-        borderRadius: 20
-    },
-    buttonText: {
-        color: 'white',
-        fontSize: 20,
-        textAlign: 'center'
-    },
-    contents: {
-        borderWidth: 1,
-        borderColor: 'black',
-        width: 400,
-        minHeight: 400,
-        padding: 7,
-        fontSize: 18
-    }
+  container: {
+    height: heightPercentageToDP("82%"),
+    textAlign: "left",
+    marginLeft: widthPercentageToDP('2%'),
+    marginRight: widthPercentageToDP('2%'),
+    // maxWidth:widthPercentageToDP('98%')
+  },
+  invis: {
+    display: "none"
+  },
+  top: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  title2: {
+    fontSize: 30
+  },
+  title: {
+    fontSize: widthPercentageToDP('10%'),
+    fontWeight: "bold",
+    padding: widthPercentageToDP('1%'),
+    marginTop: heightPercentageToDP('1%')
+  },
+  edit: {
+    color: "#FFB23D",
+    textAlign: "right",
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  placeHolder: {
+    marginLeft: widthPercentageToDP('.5%'),
+    color: "grey"
+  },
+  input: {
+    height: heightPercentageToDP('60%'),
+    textAlignVertical: 'top',
+    fontSize: 16,
+    borderColor: '#eee',
+    borderWidth: 1,
+    padding: widthPercentageToDP('1%'),
+    borderRadius: 5
+  },
+  button: {
+    width: "100%",
+    backgroundColor: "#FFB23D",
+    position: "absolute",
+    bottom: heightPercentageToDP('1%')
+  },
+  buttonText: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "bold",
+    padding: widthPercentageToDP('2%'),
+    fontSize: 20
+  },
+  contents: {
+    padding: widthPercentageToDP('1%'),
+    color: "grey",
+    fontSize: 20
+  },
+  editContentBtn: {
+    width: "100%",
+    backgroundColor: "#FFB23D",
+    position: "absolute",
+    bottom: heightPercentageToDP('1%')
+  },
+  contentBtnText: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "bold",
+    padding: widthPercentageToDP('2%'),
+    fontSize: 20
+  }
 });
-
 
 export default EditItem;
