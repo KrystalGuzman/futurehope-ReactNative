@@ -8,10 +8,19 @@ import { NativeRouter, Route, Link, Switch, useHistory } from "react-router-nati
 import NoteTakingRoutes from './components/NoteTakingRoutes';
 import BottomFooter from './components/BottomFooter';
 
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunkMiddleware from 'redux-thunk'
+import reducer from './reducers'
+
+const middleware = applyMiddleware(thunkMiddleware)
+const store = createStore(reducer, middleware)
+
 const App = () => {
 
 
   return (
+    <Provider store={store}>
     <NativeRouter>
       <View style={styles.container}>
         <Header />
@@ -23,6 +32,7 @@ const App = () => {
         <BottomFooter style={styles.styledfooter} />
       </View>
     </NativeRouter>
+    </Provider>
   )
 }
 
