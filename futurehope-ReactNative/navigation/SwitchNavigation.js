@@ -1,8 +1,8 @@
 import React from 'react'
 import { createSwitchNavigator, createAppContainer } from 'react-navigation'
-import Login from '../screens/Login'
-import Signup from '../screens/Signup'
-import Profile from '../screens/Profile'
+import Login from '../components/auth/Login'
+import Signup from '../components/auth/Signup'
+import Profile from '../components/auth/Profile'
 
 const SwitchNavigator = createSwitchNavigator(
 	{
