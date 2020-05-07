@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { Footer, FooterTab, Button } from 'native-base';
 import Icon from "react-native-vector-icons/FontAwesome";
-import { widthPercentageToDP, heightPercentageToDP } from "../utils/PercenatageFix";
+import { widthPercentageToDP, heightPercentageToDP } from "../../utils/PercenatageFix";
 import { useHistory } from 'react-router-native'
 
 const BottomFooter = () => {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2
   },
   footerMain: {
-maxHeight:heightPercentageToDP('100%')
+    maxHeight: heightPercentageToDP('100%')
 
   },
   footerTab: {

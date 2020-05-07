@@ -3,10 +3,10 @@ import { View, Text, StyleSheet, FlatList, Alert, AsyncStorage, TouchableOpacity
 import Header from './components/Header';
 import Home from './components/Home'
 import CalendarRoutes from './components/calendar/CalendarRoutes';
-import {heightPercentageToDP} from "./utils/PercenatageFix";
+import { heightPercentageToDP } from "./utils/PercenatageFix";
 import { NativeRouter, Route, Link, Switch, useHistory } from "react-router-native"
 import NoteTakingRoutes from './components/NoteTakingRoutes';
-import BottomFooter from './components/BottomFooter';
+import BottomFooter from './components/nav/BottomFooter';
 
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
@@ -21,17 +21,17 @@ const App = () => {
 
   return (
     <Provider store={store}>
-    <NativeRouter>
-      <View style={styles.container}>
-        <Header />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/calendar'><CalendarRoutes /></Route>
-          <Route path='/notetaking'><NoteTakingRoutes /></Route>
-        </Switch>
-        <BottomFooter style={styles.styledfooter} />
-      </View>
-    </NativeRouter>
+      <NativeRouter>
+        <View style={styles.container}>
+          <Header />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/calendar'><CalendarRoutes /></Route>
+            <Route path='/notetaking'><NoteTakingRoutes /></Route>
+          </Switch>
+          <BottomFooter style={styles.styledfooter} />
+        </View>
+      </NativeRouter>
     </Provider>
   )
 }
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  styledfooter:{
+  styledfooter: {
     position: "absolute",
     bottom: heightPercentageToDP('0%')
   }
