@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, } from 'react-native';
 import Icon from "react-native-vector-icons/FontAwesome";
-import { widthPercentageToDP, heightPercentageToDP } from '../utils/PercenatageFix';
+import { widthPercentageToDP, heightPercentageToDP } from '../../utils/PercenatageFix';
 const AddItem = ({ title, addItem, text, onTextChange, handleModal }) => {
     const submitHandler = () => {
         addItem(text)

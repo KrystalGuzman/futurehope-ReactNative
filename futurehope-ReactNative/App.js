@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, Alert, AsyncStorage, TouchableOpacity } from 'react-native';
-import Header from './components/Header';
+import Header from './components/nav/Header';
 import Home from './components/Home'
 import CalendarRoutes from './components/calendar/CalendarRoutes';
 import { heightPercentageToDP } from "./utils/PercenatageFix";
 import { NativeRouter, Route, Link, Switch, useHistory } from "react-router-native"
-import NoteTakingRoutes from './components/NoteTakingRoutes';
+import NoteTakingRoutes from './components/notetaking/NoteTakingRoutes';
 import BottomFooter from './components/nav/BottomFooter';
 
 import { createStore, applyMiddleware } from 'redux'
