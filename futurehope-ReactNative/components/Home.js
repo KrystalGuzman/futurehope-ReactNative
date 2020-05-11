@@ -5,12 +5,13 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { widthPercentageToDP, heightPercentageToDP } from "../utils/PercenatageFix";
 import { Footer, FooterTab, Button } from 'native-base';
 import CalendarView from './calendar/CalendarView';
+import SwitchNavigator from '../navigation/SwitchNavigator'
 
 const Home = ({ item, deleteItem }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Welcome to the School In The Sky app</Text>
-
+            <SwitchNavigator />
         </View>
     )
 }
