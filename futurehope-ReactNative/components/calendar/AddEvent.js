@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
     marginLeft: widthPercentageToDP("3%"),
     marginTop: heightPercentageToDP("10%"),
     maxWidth: widthPercentageToDP("100%"),
+    color: "white"
   },
   input: {
     margin: heightPercentageToDP("5.5%"),

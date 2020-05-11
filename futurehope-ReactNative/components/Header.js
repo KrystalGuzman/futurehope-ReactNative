@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     text: {
         fontWeight: 'bold',
         fontSize: 18,
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'gray'
     },
     icon: {
         marginLeft: widthPercentageToDP('4%'),
