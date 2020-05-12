@@ -27,11 +27,11 @@ const BottomFooter = () => {
       <Footer style={styles.footerMain}>
         <FooterTab style={styles.footerTab}>
           <Button style={notesActive ? styles.activeButton : styles.inactiveButton} onPress={notePress}>
-            <Icon name='sticky-note' size={20} />
+            <Icon name='sticky-note' size={20} color='gray' />
             <Text style={styles.buttonText}>Notes</Text>
           </Button>
           <Button style={calendarActive ? styles.activeButton : styles.inactiveButton} onPress={calendarPress}>
-            <Icon name='calendar' size={20} />
+            <Icon name='calendar' size={20} color='gray' />
             <Text style={styles.buttonText}>Calendar</Text>
           </Button>
         </FooterTab>
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 16,
     textAlign: 'center',
-
+    color: 'gray'
   },
   inactiveButton: {
     marginTop: 0
