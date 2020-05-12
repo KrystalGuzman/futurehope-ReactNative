@@ -49,6 +49,7 @@ class Login extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		width: '55%',
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center'
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
 	inputBox: {
 		width: '85%',
 		margin: 10,
-		padding: 15,
+		padding: 18,
 		fontSize: 16,
 		borderColor: '#d3d3d3',
 		borderBottomWidth: 1,

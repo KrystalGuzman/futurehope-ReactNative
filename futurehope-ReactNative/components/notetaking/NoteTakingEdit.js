@@ -42,7 +42,7 @@ const EditItem = ({ items, editItem, edit, editChange, deleteItem }) => {
         </View>
         {!target.content ? (
           <Text style={editNote ? styles.invis : styles.placeHolder}>
-            Add details here...
+            Add note here...
           </Text>
         ) : (
             <Text style={editNote ? styles.invis : styles.contents}>
@@ -50,7 +50,7 @@ const EditItem = ({ items, editItem, edit, editChange, deleteItem }) => {
             </Text>
           )}
         <TextInput
-          placeholder="Add details here..."
+          placeholder="Add note here..."
           style={editNote ? styles.input : styles.invis}
           onChangeText={editChange}
           value={edit}
@@ -63,14 +63,15 @@ const EditItem = ({ items, editItem, edit, editChange, deleteItem }) => {
           setEditNote(false);
         }}
       >
-        <Text style={styles.buttonText}>Set Details</Text>
+        <Icon name='check' color='white' size= {20}/>
+        <Text style={styles.buttonText}>Done</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={editNote ? styles.invis : styles.editContentBtn}
         onPress={() => setEditNote(true)}
       >
-        <Text style={styles.contentBtnText}>Edit Content</Text>
+        <Text style={styles.contentBtnText}>Edit Note</Text>
       </TouchableOpacity>
     </View>
   );
@@ -80,8 +81,9 @@ const styles = StyleSheet.create({
   container: {
     height: heightPercentageToDP("82%"),
     textAlign: "left",
-    marginLeft: widthPercentageToDP('2%'),
+    marginLeft: widthPercentageToDP('5%'),
     marginRight: widthPercentageToDP('2%'),
+    maxWidth: ('90%'),
   },
   invis: {
     display: "none"
@@ -149,6 +151,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     padding: widthPercentageToDP('2%'),
     fontSize: 20
+  },
+  touchableOpacity:{
+    alignItems: 'center',
+
   }
 });
 

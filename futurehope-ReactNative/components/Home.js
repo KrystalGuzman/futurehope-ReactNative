@@ -10,7 +10,7 @@ import SwitchNavigator from '../navigation/SwitchNavigator'
 const Home = ({ item, deleteItem }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Welcome to the School In The Sky app</Text>
+            <Text style={styles.text}>Welcome to the School In The Sky App</Text>
             <SwitchNavigator />
         </View>
     )
@@ -21,13 +21,15 @@ const styles = StyleSheet.create({
 
         fontSize: 28,
         textAlign: 'center',
-
-
+        maxWidth: ('60%'),
+        fontWeight: 'bold',
+        margin: ('15%'),
+        color: 'orange' 
     },
     container: {
         height: heightPercentageToDP('82.5%'),
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     }
 });
 
