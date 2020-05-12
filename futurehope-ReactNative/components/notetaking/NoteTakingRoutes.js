@@ -2,8 +2,8 @@ import { View, Text, StyleSheet, FlatList, Alert, AsyncStorage, TouchableOpacity
 import React, { useState } from 'react';
 import { Route, useHistory } from "react-router-native";
 import uuid from 'react-native-uuid';
-import NoteTaking from '../components/NoteTaking';
-import NoteTakingEdit from '../components/NoteTakingEdit';
+import NoteTaking from './NoteTaking';
+import NoteTakingEdit from './NoteTakingEdit';
 
 function NoteTakingRoutes() {
   const [items, setItems] = React.useState([

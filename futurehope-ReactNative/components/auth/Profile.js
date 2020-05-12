@@ -13,7 +13,9 @@ class Profile extends React.Component {
 		return (
 			<View style={styles.container}>
 				<Text>Profile</Text>
+				<Text>{this.props.user.fullName}</Text>
 				<Text>{this.props.user.email}</Text>
+				<Text>{this.props.user.userType}</Text>
 				<Button title='Logout' onPress={this.handleSignout} />
 			</View>
 		)

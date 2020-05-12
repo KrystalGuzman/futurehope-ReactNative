@@ -11,7 +11,7 @@ import { useParams, useHistory } from "react-router-native";
 import {
   widthPercentageToDP,
   heightPercentageToDP
-} from "../utils/PercenatageFix";
+} from "../../utils/PercenatageFix";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const EditItem = ({ items, editItem, edit, editChange, deleteItem }) => {

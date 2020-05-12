@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ShadowPropTypesIOS } from 'react-native';
 import { NativeRouter, Route, Link, useHistory } from "react-router-native"
 import Icon from 'react-native-vector-icons/FontAwesome'
-import { widthPercentageToDP, heightPercentageToDP } from '../utils/PercenatageFix'
+import { widthPercentageToDP, heightPercentageToDP } from '../../utils/PercenatageFix'
 
 const Header = () => {
     const history = useHistory()
