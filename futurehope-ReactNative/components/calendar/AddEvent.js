@@ -45,6 +45,7 @@ const AddEvent = ({ submitHandler }) => {
       setMode("date");
     }
   };
+  
   return (
     <View style={styles.container}>
       <View style={styles.dateContainer}>
@@ -59,7 +60,7 @@ const AddEvent = ({ submitHandler }) => {
             onChange={(here, k) => handleChange(here, k)}
           />
         )}
-        <Text style={styles.button} onPress={() => setShow(true)}>
+        <Text style={styles.button} onPress={() => setShow(true) }>
           Set Date/Time
         </Text>
       </View>
@@ -83,7 +84,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#f8f8f8",
     borderBottomWidth: 1,
     borderColor: "#eee",
-    fontSize: 18,
+    fontSize: 20,
+
   },
   container: {
     // alignItems: 'center',

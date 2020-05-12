@@ -28,7 +28,7 @@ class Signup extends React.Component {
 					secureTextEntry={true}
 				/>
 				<TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
-					<Text style={styles.buttonText}>Signup</Text>
+					<Text style={styles.buttonText}>Sign Up</Text>
 				</TouchableOpacity>
 			</View>
 		)
@@ -38,6 +38,7 @@ class Signup extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		width: '55%',
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center'

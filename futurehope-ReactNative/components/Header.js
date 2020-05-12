@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         height: heightPercentageToDP('9%'),
-        paddingTop: heightPercentageToDP('4%'),
-        paddingBottom: heightPercentageToDP('1%'),
+        paddingTop: heightPercentageToDP('6%'),
+        paddingBottom: heightPercentageToDP('2%'),
         alignItems: 'center',
         borderBottomColor: '#eee',
         borderBottomWidth: 1,
