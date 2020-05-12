@@ -4,6 +4,7 @@ import Firebase, { db } from '../config/Firebase.js'
 
 export const UPDATE_EMAIL = 'UPDATE_EMAIL'
 export const UPDATE_PASSWORD = 'UPDATE_PASSWORD'
+export const UPDATE_NAME = 'UPDATE_NAME'
 export const LOGIN = 'LOGIN'
 export const SIGNUP = 'SIGNUP'
 
@@ -20,6 +21,13 @@ export const updatePassword = password => {
 	return {
 		type: UPDATE_PASSWORD,
 		payload: password
+	}
+}
+
+export const updateName = fullName => {
+	return {
+		type: UPDATE_NAME,
+		payload: fullName
 	}
 }
 
@@ -54,15 +62,21 @@ export const getUser = uid => {
 export const signup = () => {
 	return async (dispatch, getState) => {
 		try {
-			const { email, password } = getState().user
+			const { email, password, fullName } = getState().user
 			const response = await Firebase.auth().createUserWithEmailAndPassword(email, password)
 			if (response.user.uid) {
 				const user = {
 					uid: response.user.uid,
-					email: email
-				}
+					email: email,
+					fullName: fullName,
+					userType: "student"
 
+				}
 				db.collection('users')
+				.doc(response.user.uid)
+				.set(user)
+				
+				firestore.collection('users')
 					.doc(response.user.uid)
 					.set(user)
 

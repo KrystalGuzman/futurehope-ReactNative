@@ -13,6 +13,11 @@ import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 import reducer from './reducers'
 
+import {decode, encode} from 'base-64'
+
+if (!global.btoa) {  global.btoa = encode }
+if (!global.atob) { global.atob = decode }
+
 const middleware = applyMiddleware(thunkMiddleware)
 const store = createStore(reducer, middleware)
 
