@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
     fontSize: 26.5,
     paddingLeft: widthPercentageToDP("10%"),
     paddingRight: widthPercentageToDP("10%"),
-    backgroundColor: "#ff9800"
+    backgroundColor: "#ff9800",
+    color: "white"
   },
   input: {
     margin: 20
