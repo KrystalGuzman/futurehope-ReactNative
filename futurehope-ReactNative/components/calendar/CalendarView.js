@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, Text, AsyncStorage } from "react-native";
 import { useHistory } from "react-router-native";
 import { Agenda } from "react-native-calendars";
+
 import {
   widthPercentageToDP,
   heightPercentageToDP
 } from "../../utils/PercenatageFix";
 
 import AgendaItem from "./AgendaItem";
+import MentorItem from "./MentorItem";
 
 const CalendarView = ({ agendaItems, setAgendaItems }) => {
   const [date, setDate] = useState(Date());
@@ -21,7 +23,9 @@ const CalendarView = ({ agendaItems, setAgendaItems }) => {
     dates = { ...dates, [i]: { marked: true } };
     return dates;
   });
-  console.log(dates);
+
+  // console.log(dates);
+
   return (
     <View style={{ flex: 1 }}>
       <Agenda
@@ -30,6 +34,7 @@ const CalendarView = ({ agendaItems, setAgendaItems }) => {
         markedDates={dates}
         renderItem={item => {
           return (
+            
             <AgendaItem
               item={item}
               setAgendaItems={setAgendaItems}
@@ -39,11 +44,18 @@ const CalendarView = ({ agendaItems, setAgendaItems }) => {
           );
         }}
       />
+
+      <View style={styles.container}>
+        <MentorItem/>
+      </View>
+
       <View style={styles.container}>
         <Text style={styles.button} onPress={onPress}>
           Add an Event
         </Text>
       </View>
+
+      
     </View>
   );
 };
