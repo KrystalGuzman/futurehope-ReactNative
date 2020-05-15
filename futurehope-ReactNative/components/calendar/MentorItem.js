@@ -5,52 +5,47 @@ import {
   heightPercentageToDP,
   widthPercentageToDP,
 } from "../../utils/PercenatageFix";
-import DateTimePicker from "@react-native-community/datetimepicker";
+// import DateTimePicker from "@react-native-community/datetimepicker";
 import moment from "moment";
 import Firebase, { db } from '../../config/Firebase'
+// import uuid from "react-native-uuid";
 
-const MentorItem = ({ submitHandler }) => {
+const MentorItem = ({submitHandler}) => {
   const history = useHistory();
     
-  const [date, setDate] = useState(Date());
+//   const [date, setDate] = useState(Date());
   const [events, setEvents] = useState([]);
   const [mentor, setMentor] = useState("");
   const [time, setTime] = useState();
   const [year, setYear] = useState("");
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
+  const [title, setTitle] = useState("");
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
+  const [agendaItems, setAgendaItems] = useState({});
+  const [id, setId] = useState("");
 
-//   const mockSubmit = () => {
-//     submitHandler(year, month, day, time, mentor);
-//     history.replace("/calendar/agenda");
+  const mockSubmit = () => {
+    submitHandler(year, month, day, time, mentor);
+    history.replace("/calendar/agenda");
+  };
+
+//   const submitHandler = () => {
+//     const date = `${year}-${month}-${day}`;
+//     const meetingText = `${title} with ${mentor} at ${time}`;
+//     agendaItems && agendaItems[date]
+//       ? setAgendaItems({
+//           ...agendaItems,
+//           [date]: [...agendaItems[date], { id: id, text: meetingText }]
+//         })
+//       : setAgendaItems({
+//           ...agendaItems,
+//           [date]: [{ id: id, text: meetingText }]
+//         });
 //   };
 
-//   function onMentorChange(textValue) {
-//     setMentor(textValue);
-//   }
 
-  // const handleChange = ({ nativeEvent: { timestamp }, type }, l) => {
-  //   console.log(type);
-  //   if (type === "set") {
-  //     if (mode === "date") {
-  //       setMode("time");
-  //       const myDate = l.toJSON().split("T")[0].split("-");
-  //       setYear(myDate[0]);
-  //       setMonth(myDate[1]);
-  //       setDay(myDate[2]);
-  //     } else {
-  //       setMode("date");
-  //       const myTime = moment(timestamp).format("h:mm a");
-  //       setTime(myTime);
-  //       setShow(false);
-  //     }
-  //   } else {a
-  //     setShow(false);
-  //     setMode("date");
-  //   }
-  // };
 
 
   const _getStorageValue = async () => {
@@ -62,8 +57,9 @@ const MentorItem = ({ submitHandler }) => {
       .onSnapshot(querySnapshot => {
         querySnapshot.forEach(doc => {
           const start = doc.data().start.seconds * 1000;
-          
-            setMentor(doc.data().participantNames);
+            setTitle(doc.data().title)
+            setMentor(doc.data().participantNames[0]);
+            // console.log(doc.data())
             // useEffect(() => {
                 const start2 = new Date(start);
                 // console.log("Start: ", start2);
@@ -75,45 +71,82 @@ const MentorItem = ({ submitHandler }) => {
             // } else {
                 
               const myTime = start2.toJSON().split("T")[1];
-            //   .split("Z");
-            //    moment(timestamp).format("h:mm a");
             var dt = moment(myTime, ["hh:mm:ss.SSSZ"]).format("HH:mm A");
-            console.log()
+            // console.log()
                 setTime(dt);
                 setShow(false);
             // }
             // }, [])
+            setId(doc.data().id)
+            // const date = `${year}-${month}-${day}`;
+            // const meetingText = `Meeting with ${mentor} at ${time}`;
+
+            // setAgendaItems({
+            //     // agendaItems,
+            //     [date]: [{ id: id, text: meetingText }]
+            //   })
+            //   console.log(agendaItems);
+            const date = `${year}-${month}-${day}`;
+            const meetingText = `Meeting with ${mentor} at ${time}`;
+            setAgendaItems({
+                [date]: [{ id: id, text: meetingText }]
+            })
+            console.log("agendaItems:", agendaItems)
 
           newData.push({
-            // title: doc.data().title,
+            title: doc.data().title,
             start: new Date(start),
             id: doc.data().id,
-            // year: '',
-            // month: '',
-            // day: '',
-            // time: '',
-            // mentor: doc.data().participantNames,
-            // show: true
+            mentor: doc.data().participantNames[0],
+            // date: date,
           });
+            setEvents(newData)
+
+            // const map1 = events.map(item => {
+            //     // const date = `${year}-${month}-${day}`;
+            //     const start2 = new Date(item.start);
+            //     const myDate = start2.toJSON().split("T")[0].split("-");
+            //     setYear(myDate[0]);
+            //     setMonth(myDate[1]);
+            //     setDay(myDate[2])
+            //     const myTime = start2.toJSON().split("T")[1];
+            //     var dt = moment(myTime, ["hh:mm:ss.SSSZ"]).format("HH:mm A");
+            //     // console.log()
+            //         setTime(dt);
+                // }
+                // }, [])
+                // setId(doc.data().id)
+            //     const date = `${year}-${month}-${day}`;
+            //     const meetingText = `Meeting with ${mentor} at ${time}`;
+            //     setAgendaItems({
+            //         [date]: [{ id: id, text: meetingText }]
+            //     })
+            //   console.log("agendaItems:", agendaItems)
+            // })
+           
+            //   console.log(map1);
+        //   AsyncStorage.setItem("noteCalendarStorage", JSON.stringify(agendaItems));
+
         });
-        setEvents(newData)
+        // const note =  AsyncStorage.getItem("noteCalendarStorage").then(value => {
+        //         value ? setAgendaItems(JSON.parse(value)) : setAgendaItems({});
+        //       });
+			// console.log(note)
+        
+        
+        
       });
   }
 
-  // useEffect(() => {
-  //     const myDate = l.toJSON().split("T")[0].split("-");
-  //       setYear(myDate[0]);
-  //       setMonth(myDate[1]);
-  //       setDay(myDate[2])
-  //     const myTime = moment(timestamp).format("h:mm a");
-  //       setTime(myTime);
-  //       setShow(false);
-  // }, [])
-
   useEffect(() => {
     _getStorageValue()
-    // console.log("New Event: ",events)
+
+    // console.log("New Event: ", events)
+
+    // AsyncStorage.setItem("noteCalendarStorage", events)
   }, [])
+
+
 
   return (
       <View>
@@ -154,6 +187,9 @@ const MentorItem = ({ submitHandler }) => {
     <Text style={styles.itemText}>month: {month}</Text>
     <Text style={styles.itemText}>day: {day}</Text> */}
     <Text style={styles.itemText}>time: {time}</Text>
+    <Text style={styles.button} onPress={mockSubmit}>
+        +Sync+
+      </Text>
     {/* <EditAgenda
       item={item}
       setAgendaItems={setAgendaItems}
@@ -249,7 +285,8 @@ const styles = StyleSheet.create({
       fontSize: 30,
       padding: 10,
       width: 150,
-      borderRadius: 20
+      borderRadius: 20,
+      borderColor: "black"
     },
     input: {
       margin: 20
