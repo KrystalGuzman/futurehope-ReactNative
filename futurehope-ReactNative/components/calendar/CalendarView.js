@@ -34,7 +34,6 @@ const CalendarView = ({ agendaItems, setAgendaItems }) => {
         markedDates={dates}
         renderItem={item => {
           return (
-            
             <AgendaItem
               item={item}
               setAgendaItems={setAgendaItems}
@@ -46,7 +45,7 @@ const CalendarView = ({ agendaItems, setAgendaItems }) => {
       />
 
       <View style={styles.container}>
-        <MentorItem/>
+        {/* <MentorItem/> */}
       </View>
 
       <View style={styles.container}>
