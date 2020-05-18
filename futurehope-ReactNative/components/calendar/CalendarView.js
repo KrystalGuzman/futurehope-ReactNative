@@ -23,7 +23,6 @@ const CalendarView = ({ agendaItems, setAgendaItems }) => {
     dates = { ...dates, [i]: { marked: true } };
     return dates;
   });
-
   // console.log(dates);
 
   return (
