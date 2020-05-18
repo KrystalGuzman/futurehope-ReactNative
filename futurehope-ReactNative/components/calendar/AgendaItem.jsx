@@ -5,6 +5,7 @@ import EditAgenda from "./EditAgenda";
 import { heightPercentageToDP, widthPercentageToDP } from "../../utils/PercenatageFix";
 
 const AgendaItem = ({ item, setAgendaItems, agendaItems, date }) => {
+  // console.log(item)
   return (
     <View style={styles.itemView}>
       <Text style={styles.itemText}>{item.text}</Text>
