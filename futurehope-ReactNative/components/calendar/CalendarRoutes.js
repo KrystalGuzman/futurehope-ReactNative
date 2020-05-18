@@ -14,7 +14,7 @@ const CalendarRoutes = () => {
       value ? setAgendaItems(JSON.parse(value)) : setAgendaItems({});
     });
   }, []);
-
+//  console.log(agendaItems)
   // AsyncStorage.getItem("noteCalendarStorage").then(value => {
   //     value ? setAgendaItems(JSON.parse(value)) : setAgendaItems({});
   //   });
