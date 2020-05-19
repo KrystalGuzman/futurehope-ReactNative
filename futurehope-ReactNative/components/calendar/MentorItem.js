@@ -10,21 +10,14 @@ import Firebase, { db } from '../../config/Firebase';
 const MentorItem = ({ submitHandler }) => {
 	const history = useHistory();
 
-	// const [date, setDate] = useState(Date());
-	const [ events, setEvents ] = useState([]);
-	// const [ mentor, setMentor ] = useState('');
-	// const [ time, setTime ] = useState();
-	// const [ year, setYear ] = useState('');
-	// const [ day, setDay ] = useState('');
-	// const [ month, setMonth ] = useState('');
-  // const [ title, setTitle ] = useState('');
   let time = "";
   let mentor = "";
   let year = "";
   let month = "";
   let day = "";
-	const [ agendaItems, setAgendaItems ] = useState({});
-	// const [ id, setId ] = useState('');
+	const [ events, setEvents ] = useState([]);
+	const [agendaItems, setAgendaItems] = useState({});
+	const [krystal, setKrystal] = useState('krystal') 
 
 	const mockSubmit = () => {
 		submitHandler(year, month, day, time, mentor);
@@ -50,11 +43,11 @@ const MentorItem = ({ submitHandler }) => {
 	// 			setTitle(doc.data().title);
 	// 			setMentor(doc.data().participantNames[0]);
 	// 			const start2 = new Date(start);
-	// 			const myDate = start2.toJSON().split('T')[0].split('-');
+				// const myDate = start2.toJSON().split('T')[0].split('-');
 	// 			setYear(myDate[0]);
 	// 			setMonth(myDate[1]);
-	// 			setDay(myDate[2]);
-
+// 				setDay2(myDate[2]);
+// console.log("day", day2);
 	// 			const myTime = start2.toJSON().split('T')[1];
 	// 			var dt = moment(myTime, [ 'hh:mm:ss.SSSZ' ]).format('hh:mm A');
 	// 			setTime(dt);
@@ -84,43 +77,35 @@ const MentorItem = ({ submitHandler }) => {
 		arr.map((doc) => {
       const start = doc.start.seconds * 1000;
       const start2 = new Date(start);
-      // Does not update properly
+      
       const myDate = start2.toJSON().split('T')[0].split('-');
-			// setYear(myDate[0]);
-			// setMonth(myDate[1]);
-      // setDay(myDate[2]);
-      // console.log(myDate[0],myDate[1],myDate[2]);
-			// setTitle(doc.title);
-			// setMentor(doc.participantNames[0]);
-			// setId(doc.id);
-
 			const myTime = start2.toJSON().split('T')[1];
 			var dt = moment(myTime, [ 'hh:mm:ss.SSSZ' ]).format('hh:mm A');
-			// setTime(dt);
+			
       year = myDate[0];
       month = myDate[1];
       day = myDate[2];
       time = dt;
       mentor = doc.participantNames[0];
       const date = `${myDate[0]}-${myDate[1]}-${myDate[2]}`;
-      // console.log("date", date)
 			const meetingText = `Meeting with ${doc.participantNames[0]} at ${dt}`;
 			// setAgendaItems({
 			//   ...agendaItems,
 			//   [date]: [{ id: id, text: meetingText }]
 			// });
 			// console.log('agendaItems:', agendaItems);
-
 			newData.push({
 				title: doc.title,
 				start: new Date(start),
 				id: doc.id,
         mentor: doc.participantNames[0],
-        // not updating
 				date: date,
         meetingText: meetingText,
+        year: year,
+        month: month,
+        day: day,
         time: dt
-			});
+      });
 		});
 		const newArr = [];
 		newData.map((item) => {
@@ -131,8 +116,10 @@ const MentorItem = ({ submitHandler }) => {
     // console.log('YES MOM', agendaItems, 'NO MOM', events);
 
     // Attempt at async storage
-      // saveEvent(agendaItems);
+			saveEvent(agendaItems);
+			getEvent()
       // console.log("getEvent", getEvent());
+      
 	};
 
 	const _getStorageValue = async () => {
@@ -145,38 +132,42 @@ const MentorItem = ({ submitHandler }) => {
 				}
 			});
 			formatData(arr);
-		});
+    });
 	};
 // Attempt at AsyncStorage
-  // const saveEvent = async agendaItems => {
-  //   try {
-  //     await AsyncStorage.setItem('noteCalendarStorage', agendaItems);
-  //   } catch (error) {
-  //     // Error retrieving data
-  //     console.log(error.message);
-  //   }
-  // };
+  const saveEvent = async agendaItems => {
+    try {
+    // console.log("agendaItems", agendaItems);
+      await AsyncStorage.setItem('noteCalendarStorage', JSON.stringify(agendaItems));
+    } catch (error) {
+      // Error retrieving data
+      console.log(error.message);
+    }
+  };
 
-  // const getEvent = async () => {
-  //   let event = '';
-  //   try {
-  //     agendaItems = await AsyncStorage.getItem('noteCalendarStorage') || 'none';
-  //   } catch (error) {
-  //     // Error retrieving data
-  //     console.log(error.message);
-  //   }
-  //   return event;
-  // }
+  const getEvent = async () => {
+    let event = await AsyncStorage.getItem("noteCalendarStorage");
+    try {
+			await AsyncStorage.getItem("noteCalendarStorage").then(value => {
+				value ? setKrystal(JSON.parse(value)) : setKrystal({});
+      });
+      console.log("Async Krystal stuff", event)
+    } catch (error) {
+      // Error retrieving data
+      console.log(error.message);
+    }
+    return event;
+  }
 
 	useEffect(() => {
 		_getStorageValue();
-		console.log("YES MOM", agendaItems, "NO MOM", events);
+		// console.log("YES MOM", agendaItems, "NO MOM", events);
 	}, []);
 
 	return (
 		<View>
 			<View style={styles.itemView}>
-				<Text style={styles.itemText}>Sync</Text>
+				<Text style={styles.itemText}>time: {events.time}</Text>
 				<Text style={styles.button} onPress={mockSubmit}>
 					+Sync+
 				</Text>
