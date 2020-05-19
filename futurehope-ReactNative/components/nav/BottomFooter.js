@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-native'
 const BottomFooter = () => {
   const [calendarActive, setCalendarActive] = useState(false)
   const [notesActive, setNotesActive] = useState(false)
+  const [cardActive, setCardActive] = useState(false)
   const history = useHistory();
 
   function calendarPress() {
@@ -22,6 +23,12 @@ const BottomFooter = () => {
     setNotesActive(true)
   }
 
+  function cardPress() {
+    history.push("/flashcards/flashcard");
+    setCardActive(false)
+    setNotesActive(true)
+  }
+
   return (
     <View style={styles.container}>
       <Footer style={styles.footerMain}>
@@ -33,6 +40,10 @@ const BottomFooter = () => {
           <Button style={calendarActive ? styles.activeButton : styles.inactiveButton} onPress={calendarPress}>
             <Icon name='calendar' size={20} color='gray' />
             <Text style={styles.buttonText}>Calendar</Text>
+          </Button>
+          <Button style={cardActive ? styles.activeButton : styles.inactiveButton} onPress={cardPress}>
+            <Icon name='check-square-o' size={20} color='gray' />
+            <Text style={styles.buttonText}>Flashcards</Text>
           </Button>
         </FooterTab>
       </Footer>
@@ -56,13 +67,11 @@ const styles = StyleSheet.create({
   },
   footerMain: {
     maxHeight: heightPercentageToDP('100%')
-
   },
   footerTab: {
     backgroundColor: 'white',
     borderTopColor: '#eee',
     borderTopWidth: widthPercentageToDP('.5%'),
-
   }
 });
 

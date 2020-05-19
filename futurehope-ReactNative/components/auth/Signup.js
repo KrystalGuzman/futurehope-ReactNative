@@ -38,10 +38,10 @@ class Signup extends React.Component {
 				<TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
 					<Text style={styles.buttonText}>Sign Up</Text>
 				</TouchableOpacity>
-				<Button
-					title="Have an account? Log In"
-					onPress={() => this.props.navigation.navigate('Login')}
-				/>
+				<Text style={styles.text}>Have an account?</Text>
+				<TouchableOpacity style={styles.buttonLogin} onPress={() => this.props.navigation.navigate('Login')}>
+					<Text style={styles.buttonText}>Log In</Text>
+				</TouchableOpacity>
 			</View>
 		)
 	}
@@ -65,9 +65,10 @@ const styles = StyleSheet.create({
 		textAlign: 'center'
 	},
 	button: {
-		marginTop: 30,
+		marginTop: 15,
 		marginBottom: 20,
 		paddingVertical: 5,
+		padding: 10,
 		alignItems: 'center',
 		backgroundColor: '#FFA611',
 		borderColor: '#FFA611',
@@ -80,9 +81,17 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		color: '#fff'
 	},
-	buttonSignup: {
-		fontSize: 12
-	}
+	buttonLogin: {
+		marginBottom: 33,
+		paddingVertical: 5,
+		alignItems: 'center',
+		backgroundColor: 'gray',
+		borderColor:'gray',
+		borderWidth: 1,
+		borderRadius: 5,
+		color: '#FFA611',
+		width: 200
+	},
 })
 
 const mapDispatchToProps = dispatch => {
