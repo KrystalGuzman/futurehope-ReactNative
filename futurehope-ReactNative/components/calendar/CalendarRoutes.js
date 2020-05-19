@@ -4,20 +4,14 @@ import { Route } from "react-router-native";
 import CalendarView from "./CalendarView";
 import AddEvent from "./AddEvent";
 import uuid from "react-native-uuid";
-import MentorItem from "./MentorItem";
 
 const CalendarRoutes = () => {
   const [agendaItems, setAgendaItems] = useState({});
-
   React.useEffect(() => {
     AsyncStorage.getItem("noteCalendarStorage").then(value => {
       value ? setAgendaItems(JSON.parse(value)) : setAgendaItems({});
     });
   }, []);
-//  console.log(agendaItems)
-  // AsyncStorage.getItem("noteCalendarStorage").then(value => {
-  //     value ? setAgendaItems(JSON.parse(value)) : setAgendaItems({});
-  //   });
 
   React.useEffect(() => {
     AsyncStorage.setItem("noteCalendarStorage", JSON.stringify(agendaItems));
@@ -41,14 +35,12 @@ const CalendarRoutes = () => {
     <View style={{ flex: 1 }}>
       <Route exact path="/calendar/addevent">
         <AddEvent submitHandler={submitHandler} />
-        
       </Route>
       <Route exact path="/calendar/agenda">
         <CalendarView
           agendaItems={agendaItems}
           setAgendaItems={setAgendaItems}
         />
-        <MentorItem submitHandler={submitHandler} />
       </Route>
     </View>
   );

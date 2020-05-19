@@ -3,14 +3,11 @@ import { View, Text, StyleSheet, Button } from 'react-native'
 import { connect } from 'react-redux'
 import Firebase from '../../config/Firebase'
 
-
 class Profile extends React.Component {
 	handleSignout = () => {
 		Firebase.auth().signOut()
 		this.props.navigation.navigate('Login')
 	}
-
-	
 
 	render() {
 		return (
@@ -18,6 +15,7 @@ class Profile extends React.Component {
 				<Text>Profile</Text>
 				<Text>{this.props.user.fullName}</Text>
 				<Text>{this.props.user.email}</Text>
+				<Text>{this.props.user.userType}</Text>
 				<Button title='Logout' onPress={this.handleSignout} />
 			</View>
 		)
