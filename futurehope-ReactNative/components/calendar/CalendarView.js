@@ -51,7 +51,7 @@ const CalendarView = ({ agendaItems, setAgendaItems }) => {
 const styles = StyleSheet.create({
   text: {
     padding: 15,
-    backgroundColor: "#f8f8f8",
+    backgroundColor: "#f3f3f3",
     borderBottomWidth: 1,
     borderColor: "#eee",
     fontSize: 25
@@ -59,23 +59,27 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: heightPercentageToDP(".5%")
+    paddingBottom: heightPercentageToDP(".5%"),
+    backgroundColor: "#f3f3f3"
   },
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    margin: 20
+    margin: 20,
   },
   modal: {
-    width: 200
+    width: 200,
   },
   button: {
     textAlign: "center",
     fontSize: 26.5,
-    paddingLeft: widthPercentageToDP("10%"),
-    paddingRight: widthPercentageToDP("10%"),
-    backgroundColor: "#ff9800",
-    color: "white"
+    paddingLeft: widthPercentageToDP("15%"),
+    paddingRight: widthPercentageToDP("15%"),
+    paddingTop: widthPercentageToDP("3%"),
+    paddingBottom: widthPercentageToDP("3%"),
+    backgroundColor: "#FFA611",
+    color: "white",
+    marginBottom: 20
   },
   input: {
     margin: 20

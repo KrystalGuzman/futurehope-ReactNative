@@ -63,7 +63,7 @@ const EditItem = ({ items, editItem, edit, editChange, deleteItem }) => {
           setEditNote(false);
         }}
       >
-        <Icon name='check' color='white' size= {20}/>
+        {/* <Icon name='check' color='white' size= {20}/> */}
         <Text style={styles.buttonText}>Done</Text>
       </TouchableOpacity>
 
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     padding: widthPercentageToDP('2%'),
-    fontSize: 20
+    fontSize: 30
   },
   contents: {
     padding: widthPercentageToDP('1%'),
@@ -150,11 +150,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     padding: widthPercentageToDP('2%'),
-    fontSize: 20
+    fontSize: 20,
   },
   touchableOpacity:{
+    display: 'flex',
     alignItems: 'center',
-
+    justifyContent: 'space-around',
   }
 });
 

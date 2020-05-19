@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-
 import EditAgenda from "./EditAgenda";
 import { heightPercentageToDP, widthPercentageToDP } from "../../utils/PercenatageFix";
 
@@ -56,8 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     marginRight: widthPercentageToDP('2%'),
     marginTop: heightPercentageToDP('8%'),
-    flexDirection: "row",
-    
+    flexDirection: "row",  
   },
   itemText: {
     fontSize: 18

@@ -1,8 +1,12 @@
-import React from 'react'
-import { View, TextInput, StyleSheet, TouchableOpacity, Text, Button } from 'react-native'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import React from 'react';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text, Button } from 'react-native';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { updateEmail, updatePassword, login, getUser } from '../../actions/user'
+import {
+  widthPercentageToDP,
+  heightPercentageToDP
+} from "../../utils/PercenatageFix";
 import Firebase from '../../config/Firebase'
 
 class Login extends React.Component {
@@ -37,10 +41,10 @@ class Login extends React.Component {
 				<TouchableOpacity style={styles.button} onPress={() => this.props.login()}>
 					<Text style={styles.buttonText}>Login</Text>
 				</TouchableOpacity>
-				<Button
-					title="Don't have an account yet? Sign up"
-					onPress={() => this.props.navigation.navigate('Signup')}
-				/>
+				<Text style={styles.text}>Don't have an account yet?</Text>
+				<TouchableOpacity style={styles.buttonSignup} onPress={() => this.props.navigation.navigate('Signup')}>
+					<Text style={styles.buttonText}>Sign Up</Text>
+				</TouchableOpacity>
 			</View>
 		)
 	}
@@ -68,8 +72,8 @@ const styles = StyleSheet.create({
 		marginBottom: 20,
 		paddingVertical: 5,
 		alignItems: 'center',
-		backgroundColor: '#F6820D',
-		borderColor: '#F6820D',
+		backgroundColor: '#FFA611',
+		borderColor: '#FFA611',
 		borderWidth: 1,
 		borderRadius: 5,
 		width: 200
@@ -80,7 +84,19 @@ const styles = StyleSheet.create({
 		color: '#fff'
 	},
 	buttonSignup: {
-		fontSize: 12
+		marginBottom: 20,
+		paddingVertical: 5,
+		alignItems: 'center',
+		backgroundColor: 'gray',
+		borderColor:'gray',
+		borderWidth: 1,
+		borderRadius: 5,
+		color: '#FFA611',
+		width: 200
+	},
+	text:{
+		fontSize: 15,
+		padding: 10
 	}
 })
 
