@@ -81,7 +81,7 @@ const CalendarView = () => {
 		setAgendaItems(newArr);
 		setEvents(newData);
 		// saveEvent(agendaItems);
-		// getEvent()
+		// getEvent();
 	};
 
 	const getStorageValue = async () => {
