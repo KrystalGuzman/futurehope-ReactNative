@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import Firebase from '../../config/Firebase'
 
@@ -15,7 +15,9 @@ class Profile extends React.Component {
 				<Text style ={styles.text}>User Details:</Text>
 				<Text style = {styles.text2}> User Email: {this.props.user.email}</Text>
 				<Text style = {styles.text2}> User Type: {this.props.user.userType}</Text>
-				<Button style = {styles.button} title='Logout' onPress={this.handleSignout} />
+				<TouchableOpacity style={styles.button} onPress={() => this.handleSignout}>
+					<Text style={styles.buttonText}>Sign Up</Text>
+				</TouchableOpacity>
 			</View>
 		)
 	}
@@ -44,11 +46,18 @@ const styles = StyleSheet.create({
 		color: 'white',
 	},
 	button:{
-		fontWeight: 'bold',
-		fontSize: 20,
-		width: '15rem',
+		marginBottom: 33,
+		paddingVertical: 5,
+		alignItems: 'center',
+		backgroundColor: 'gray',
+		borderColor:'gray',
+		borderWidth: 1,
+		borderRadius: 5,
+		color: '#FFA611',
+		width: 201,
 	}
 })
+
 
 const mapStateToProps = state => {
 	return {
