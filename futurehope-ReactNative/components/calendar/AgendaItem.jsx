@@ -1,11 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-
 import EditAgenda from "./EditAgenda";
 import { heightPercentageToDP, widthPercentageToDP } from "../../utils/PercenatageFix";
 
 const AgendaItem = ({ item, setAgendaItems, agendaItems, date }) => {
-  // console.log(item)
   return (
     <View style={styles.itemView}>
       <Text style={styles.itemText}>{item.text}</Text>
@@ -57,8 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     marginRight: widthPercentageToDP('2%'),
     marginTop: heightPercentageToDP('8%'),
-    flexDirection: "row",
-    
+    flexDirection: "row",  
   },
   itemText: {
     fontSize: 18

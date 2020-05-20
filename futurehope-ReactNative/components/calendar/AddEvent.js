@@ -88,8 +88,6 @@ const styles = StyleSheet.create({
 
   },
   container: {
-    // alignItems: 'center',
-    // justifyContent: 'center',
     maxHeight: heightPercentageToDP("100%"),
     marginTop: heightPercentageToDP("1%"),
   },
@@ -105,11 +103,11 @@ const styles = StyleSheet.create({
   button: {
     textAlign: "center",
     fontSize: 25,
-    padding: 1,
+    padding: 6,
     backgroundColor: "#ff9800",
-    marginRight: widthPercentageToDP("3%"),
-    marginLeft: widthPercentageToDP("3%"),
-    marginTop: heightPercentageToDP("10%"),
+    marginRight: widthPercentageToDP("5%"),
+    marginLeft: widthPercentageToDP("5%"),
+    marginTop: heightPercentageToDP("15%"),
     maxWidth: widthPercentageToDP("100%"),
     color: "white"
   },
