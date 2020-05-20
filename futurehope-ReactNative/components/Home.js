@@ -12,7 +12,7 @@ class Home extends React.Component{
     render() {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Welcome, {this.props.user.fullName} </Text>
+            <Text style={styles.text}>Welcome {this.props.user.fullName} </Text>
             <SwitchNavigator />
         </View>
     )

@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import Firebase from '../../config/Firebase'
+import { withRouter } from 'react-router-native'
 
 class Profile extends React.Component {
 	handleSignout = () => {
@@ -46,18 +47,19 @@ const styles = StyleSheet.create({
 		color: 'white',
 	},
 	button:{
+		backgroundColor: 'white',
 		marginBottom: 33,
 		paddingVertical: 5,
 		alignItems: 'center',
-		backgroundColor: 'gray',
-		borderColor:'gray',
+		borderColor:'white',
 		borderWidth: 1,
 		borderRadius: 5,
 		color: 'white',
 		width: 201,
 	},
 	buttonText:{
-		color: 'white',
+		color: 'orange',
+		fontSize: 18,
 	}
 })
 
