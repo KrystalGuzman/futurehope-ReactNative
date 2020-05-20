@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         marginBottom: heightPercentageToDP('1%'),
     },
     input: {
-        height: heightPercentageToDP('80%'),
+        height: heightPercentageToDP('70%'),
         width: widthPercentageToDP('95%'),
         margin: widthPercentageToDP('2%'),
         fontSize: 16,
