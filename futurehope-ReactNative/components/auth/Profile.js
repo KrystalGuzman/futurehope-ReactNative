@@ -15,8 +15,8 @@ class Profile extends React.Component {
 				<Text style ={styles.text}>User Details:</Text>
 				<Text style = {styles.text2}> User Email: {this.props.user.email}</Text>
 				<Text style = {styles.text2}> User Type: {this.props.user.userType}</Text>
-				<TouchableOpacity style={styles.button} onPress={() => this.handleSignout}>
-					<Text style={styles.buttonText}>Sign Up</Text>
+				<TouchableOpacity style={styles.button} onPress={this.handleSignout}>
+					<Text style={styles.buttonText}>Log Out</Text>
 				</TouchableOpacity>
 			</View>
 		)
@@ -53,8 +53,11 @@ const styles = StyleSheet.create({
 		borderColor:'gray',
 		borderWidth: 1,
 		borderRadius: 5,
-		color: '#FFA611',
+		color: 'white',
 		width: 201,
+	},
+	buttonText:{
+		color: 'white',
 	}
 })
 
