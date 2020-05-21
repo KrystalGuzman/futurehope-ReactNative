@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Route } from "react-router-native";
 import CalendarView from "./CalendarView";
 import AddEvent from "./AddEvent";
+import MentorItem from "./MentorItem";
 import uuid from "react-native-uuid";
 
 const CalendarRoutes = () => {
@@ -31,6 +32,25 @@ const CalendarRoutes = () => {
         });
   };
 
+  const submitHandlerArray = (events) => {
+    let date = "";
+    let meetingText = "";
+    events.map((event) => {
+    date = `${event.year}-${event.month}-${event.day}`;
+    meetingText = `Meeting with ${event.mentor} at ${event.time}`;
+
+    agendaItems && agendaItems[date]
+      ? setAgendaItems({
+          ...agendaItems,
+          [date]: [...agendaItems[date], { id: uuid.v4(), text: meetingText }]
+        })
+      : setAgendaItems({
+          ...agendaItems,
+          [date]: [{ id: uuid.v4(), text: meetingText }]
+        })
+    })
+  };
+
   return (
     <View style={{ flex: 1 }}>
       <Route exact path="/calendar/addevent">
@@ -38,10 +58,11 @@ const CalendarRoutes = () => {
       </Route>
       <Route exact path="/calendar/agenda">
         <CalendarView
-          agendaItems={agendaItems}
-          setAgendaItems={setAgendaItems}
+          agendaItems2={agendaItems}
+          setAgendaItems2={setAgendaItems}
         />
       </Route>
+      {/* <MentorItem submitHandlerArray={submitHandlerArray} /> */}
     </View>
   );
 };
