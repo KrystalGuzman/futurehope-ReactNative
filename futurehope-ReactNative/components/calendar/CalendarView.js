@@ -119,11 +119,12 @@ const CalendarView = ({ agendaItems2, setAgendaItems2 }) => {
 //delete point
 
   // { [stateDate]: agendaItems[stateDate] ? [ ...agendaItems[stateDate] ] : [] }
-  // console.log("AI", agendaItems);
+	// console.log("AI", agendaItems);
+	
 	return (
 		<View style={{ flex: 1 }}>
 			<Agenda
-				items={agendaItems}
+				items={agendaItems ? agendaItems : {[stateDate]: [{id: 1234123, text: "You need to login bro"}]}}
 				loadItemsForMonth={(stateDate) => setDate(stateDate.dateString)}
 				markedDates={dates}
 				renderItem={(item) => {
@@ -138,9 +139,6 @@ const CalendarView = ({ agendaItems2, setAgendaItems2 }) => {
 				}}
 			/>
 			<View style={styles.container}>
-				<Text style={styles.button} onPress={onPress}>
-					Add an Event
-				</Text>
 				<Text style={styles.button} onPress={getStorageValue}>
 					Sync
 				</Text>
@@ -180,7 +178,8 @@ const styles = StyleSheet.create({
 		paddingBottom: widthPercentageToDP('3%'),
 		backgroundColor: '#FFA611',
 		color: 'white',
-		marginBottom: 20
+		marginBottom: 10,
+		marginTop: 10
 	},
 	input: {
 		margin: 20
