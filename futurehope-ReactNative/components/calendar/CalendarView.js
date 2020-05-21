@@ -79,7 +79,10 @@ const styles = StyleSheet.create({
     paddingBottom: widthPercentageToDP("3%"),
     backgroundColor: "#FFA611",
     color: "white",
-    marginBottom: 20
+    marginBottom: 20,  
+    borderColor: '#FFA611',
+		borderWidth: 1,
+		borderRadius: 5,
   },
   input: {
     margin: 20

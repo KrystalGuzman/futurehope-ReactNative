@@ -109,6 +109,9 @@ const styles = StyleSheet.create({
     marginLeft: widthPercentageToDP("5%"),
     marginTop: heightPercentageToDP("15%"),
     maxWidth: widthPercentageToDP("100%"),
+    borderColor: '#FFA611',
+		borderWidth: 1,
+		borderRadius: 5,
     color: "white"
   },
   input: {
