@@ -7,7 +7,7 @@ import moment from 'moment';
 import Firebase, { db } from '../../config/Firebase';
 // import uuid from "react-native-uuid";
 
-const MentorItem = ({ submitHandler }) => {
+const MentorItem = ({ submitHandlerArray }) => {
 	const history = useHistory();
 
 	let time = '';
@@ -16,72 +16,15 @@ const MentorItem = ({ submitHandler }) => {
 	let month = '';
     let day = '';
 
-	// const [ time2, setTime2 ] = useState('');
-    // const [ mentor2, setMentor2 ] = useState('');
-    // const [ year2, setYear2 ] = useState('');
-    // const [ month2, setMonth2 ] = useState('');
-    // const [ day2, setDay2 ] = useState('');
 	const [ events, setEvents ] = useState([]);
 	const [ agendaItems, setAgendaItems ] = useState({});
 	const [ krystal, setKrystal ] = useState('krystal');
 
 	const mockSubmit = () => {
-        // console.log("EVENTS", events)
-        {events.map((event) => (
-            submitHandler(event.year, event.month, event.day, event.time, event.mentor)
-          
-            ))}
-		
+        // sends data to calendar routes
+        submitHandlerArray(events)
 		history.replace('/calendar/agenda');
 	};
-
-	// const _getStorageValue = async () => {
-	// 	const uid = await AsyncStorage.getItem('UID');
-	//   let newData = [];
-
-	//   db.collection('meetings').where('participantUIDs', 'array-contains', uid)
-	// 		.onSnapshot((querySnapshot) => {
-	// 			const arr = []
-	// 			querySnapshot.forEach((doc) => {
-	// 				if (doc.data()) {
-	// 					arr.push(doc.data())
-	// 				}
-	// 			})
-	// 			console.log("YOUR MOMS ARRAY", arr);
-	// 		querySnapshot.forEach((doc) => {
-	//       // console.log(doc.data())
-	// 			const start = doc.data().start.seconds * 1000;
-	// 			setTitle(doc.data().title);
-	// 			setMentor(doc.data().participantNames[0]);
-	// 			const start2 = new Date(start);
-	// const myDate = start2.toJSON().split('T')[0].split('-');
-	// 			setYear(myDate[0]);
-	// 			setMonth(myDate[1]);
-	// 				setDay2(myDate[2]);
-	// console.log("day", day2);
-	// 			const myTime = start2.toJSON().split('T')[1];
-	// 			var dt = moment(myTime, [ 'hh:mm:ss.SSSZ' ]).format('hh:mm A');
-	// 			setTime(dt);
-	// 			setId(doc.data().id);
-
-	// 			const date = `${year}-${month}-${day}`;
-	// 			const meetingText = `Meeting with ${mentor} at ${time}`;
-	//       setAgendaItems({
-	// 				[date]: [ { id: id, text: meetingText } ]
-	// 			});
-	// 			// console.log('agendaItems:', agendaItems);
-
-	// 			newData.push({
-	// 				title: doc.data().title,
-	// 				start: new Date(start),
-	// 				id: doc.data().id,
-	// 				mentor: doc.data().participantNames[0]
-	// 				// date: date,
-	// 			});
-	// 			setEvents(newData);
-	// 		});
-	// 	});
-	// };
 
 	const formatData = (arr) => {
 		let newData = [];
@@ -98,20 +41,10 @@ const MentorItem = ({ submitHandler }) => {
 			day = myDate[2];
 			time = dt;
             mentor = doc.participantNames[0];
-            
-            // setYear2(myDate[0]);
-            // setMonth2(myDate[1]);
-            // setDay2(myDate[2]);
-            // setTime2(dt);
-            // setMentor2(doc.participantNames[0]);
 
-			const date = `${myDate[0]}-${myDate[1]}-${myDate[2]}`;
-			const meetingText = `Meeting with ${doc.participantNames[0]} at ${dt}`;
-			// setAgendaItems({
-			//   ...agendaItems,
-			//   [date]: [{ id: id, text: meetingText }]
-			// });
-			// console.log('agendaItems:', agendaItems);
+			// const date = `${myDate[0]}-${myDate[1]}-${myDate[2]}`;
+			// const meetingText = `Meeting with ${doc.participantNames[0]} at ${dt}`;
+
 			newData.push({
 				title: doc.title,
 				start: new Date(start),
@@ -125,11 +58,11 @@ const MentorItem = ({ submitHandler }) => {
 				time: dt
 			});
 		});
-		const newArr = [];
-		newData.map((item) => {
-			newArr.push({ [item.date]: [ { id: item.id, text: item.meetingText } ] });
-		});
-		setAgendaItems(newArr);
+		// const newArr = [];
+		// newData.map((item) => {
+		// 	newArr.push({ [item.date]: [ { id: item.id, text: item.meetingText } ] });
+		// });
+		// setAgendaItems(newArr);
 		setEvents(newData);
 		// console.log('YES MOM', agendaItems, 'NO MOM', events);
 
@@ -186,7 +119,7 @@ const MentorItem = ({ submitHandler }) => {
 			<View style={styles.itemView}>
 				<Text style={styles.itemText}>SYNC --></Text>
 				<Text style={styles.button} onPress={mockSubmit}>
-					+Sync+
+					+SYNC+
 				</Text>
 			</View>
 		</View>
