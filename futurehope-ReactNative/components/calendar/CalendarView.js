@@ -7,14 +7,14 @@ import uuid from "react-native-uuid";
 import { widthPercentageToDP, heightPercentageToDP } from '../../utils/PercenatageFix';
 
 import AgendaItem from './AgendaItem';
-import MentorItem from './MentorItem';
+// import MentorItem from './MentorItem';
 
 import moment from 'moment';
 import Firebase, { db } from '../../config/Firebase';
 
-const CalendarView = () => {
+const CalendarView = ({agendaItems2, setAgendaItems2}) => {
 	//{agendaItems, setAgendaItems}
-	const [ date, setDate ] = useState(Date());
+	const [ stateDate, setDate ] = useState(Date());
 	const [ events, setEvents ] = useState([]);
 	const [ agendaItems, setAgendaItems ] = useState({});
 	const history = useHistory();
@@ -45,7 +45,7 @@ const CalendarView = () => {
 			const time = dt;
 			const mentor = doc.participantNames[0];
 			date = `${myDate[0]}-${myDate[1]}-${myDate[2]}`;
-      meetingText = `Meeting with ${doc.participantNames[0]} at ${dt}`;
+      meetingText = `Meeting with ${doc.participantNames} at ${dt}`;
 
       newData.push({
 				title: doc.title,
@@ -60,28 +60,22 @@ const CalendarView = () => {
 		});
 
     const newArr = [];
-    let counter = 0
-    newData.map((item) => {
-      counter += 1
-			newArr.push({ [item.date]: [ { id: item.id, text: item.meetingText } ] });
-    });    
+    let newObj = {};
 
-    const newNewArr = []
+    newData.map((item) => {
+      // newArr.push({ [item.date]: [ { id: item.id, text: item.meetingText } ] });
+      // newObj[date] ? newObj[date].push({ id: item.id, text: item.meetingText }) : newObj[date] = [{ id: item.id, text: item.meetingText }
+      if (newObj && newObj[item.date]) { 
+        // if (item.date === item.date) {
+          newObj[item.date].push({ id: item.id, text: item.meetingText })
+        // }
+      } else {
+        newObj[item.date] = [{ id: item.id, text: item.meetingText }]
+      }
+    });
     
-    // newArr && newArr[date]
-    //   ? setAgendaItems({
-    //       ...agendaItems,
-    //       [date]: [...agendaItems[date], { id: uuid.v4(), text: meetingText }]
-    //     })
-    //   : setAgendaItems({
-    //       ...agendaItems,
-    //       [date]: [{ id: uuid.v4(), text: meetingText }]
-    //     })
-    
-		setAgendaItems(newArr);
+		setAgendaItems(newObj);
 		setEvents(newData);
-		// saveEvent(agendaItems);
-		// getEvent();
 	};
 
 	const getStorageValue = async () => {
@@ -99,14 +93,17 @@ const CalendarView = () => {
 
 	useEffect(() => {
     getStorageValue();
-    console.log('Agenda Items', agendaItems)
-	}, []);
+  }, []);
+  // console.log('STATE DATE', stateDate)
+  console.log('ITEMS', agendaItems);
+
+  // { [date]: agendaItems[date] ? [ ...agendaItems[date] ] : [] }
 
 	return (
 		<View style={{ flex: 1 }}>
 			<Agenda
-				items={{ [date]: agendaItems[date] ? [ ...agendaItems[date] ] : [] }}
-				loadItemsForMonth={(date) => setDate(date.dateString)}
+				items={agendaItems}
+				loadItemsForMonth={(stateDate) => setDate(stateDate.dateString)}
 				markedDates={dates}
 				renderItem={(item) => {
 					return (
@@ -114,7 +111,7 @@ const CalendarView = () => {
 						item={item}
             setAgendaItems={setAgendaItems}
             agendaItems={agendaItems}
-            date={date}
+            date={stateDate}
 						/>
 					);
 				}}
