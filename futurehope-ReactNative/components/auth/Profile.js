@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import Firebase from '../../config/Firebase'
+import { withRouter } from 'react-router-native'
 
 class Profile extends React.Component {
 	handleSignout = () => {
@@ -15,8 +16,8 @@ class Profile extends React.Component {
 				<Text style ={styles.text}>User Details:</Text>
 				<Text style = {styles.text2}> User Email: {this.props.user.email}</Text>
 				<Text style = {styles.text2}> User Type: {this.props.user.userType}</Text>
-				<TouchableOpacity style={styles.button} onPress={() => this.handleSignout}>
-					<Text style={styles.buttonText}>Sign Up</Text>
+				<TouchableOpacity style={styles.button} onPress={this.handleSignout}>
+					<Text style={styles.buttonText}>Log Out</Text>
 				</TouchableOpacity>
 			</View>
 		)
@@ -46,15 +47,19 @@ const styles = StyleSheet.create({
 		color: 'white',
 	},
 	button:{
+		backgroundColor: 'white',
 		marginBottom: 33,
 		paddingVertical: 5,
 		alignItems: 'center',
-		backgroundColor: 'gray',
-		borderColor:'gray',
+		borderColor:'white',
 		borderWidth: 1,
 		borderRadius: 5,
-		color: '#FFA611',
+		color: 'white',
 		width: 201,
+	},
+	buttonText:{
+		color: 'orange',
+		fontSize: 18,
 	}
 })
 
