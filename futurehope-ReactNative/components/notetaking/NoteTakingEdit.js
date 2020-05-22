@@ -11,7 +11,7 @@ import { useParams, useHistory } from "react-router-native";
 import {
   widthPercentageToDP,
   heightPercentageToDP
-} from "../utils/PercenatageFix";
+} from "../../utils/PercenatageFix";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const EditItem = ({ items, editItem, edit, editChange, deleteItem }) => {
@@ -38,19 +38,19 @@ const EditItem = ({ items, editItem, edit, editChange, deleteItem }) => {
       <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={50}>
         <View style={{ flexDirection: 'row', justifyContent: "space-between", alignItems: 'center', maxWidth: widthPercentageToDP('90%') }}>
           <Text style={styles.title}>{target.title}</Text>
-          <Icon  name='trash' color='grey' size={25} onPress={deletePress} />
+          <Icon name='trash' color='grey' size={25} onPress={deletePress} />
         </View>
         {!target.content ? (
           <Text style={editNote ? styles.invis : styles.placeHolder}>
-            Add details here...
-        </Text>
+            Add note here...
+          </Text>
         ) : (
             <Text style={editNote ? styles.invis : styles.contents}>
               {target.content}
             </Text>
           )}
         <TextInput
-          placeholder="Add details here..."
+          placeholder="Add note here..."
           style={editNote ? styles.input : styles.invis}
           onChangeText={editChange}
           value={edit}
@@ -63,14 +63,15 @@ const EditItem = ({ items, editItem, edit, editChange, deleteItem }) => {
           setEditNote(false);
         }}
       >
-        <Text style={styles.buttonText}>Set Details</Text>
+        {/* <Icon name='check' color='white' size= {20}/> */}
+        <Text style={styles.buttonText}>Done</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={editNote ? styles.invis : styles.editContentBtn}
         onPress={() => setEditNote(true)}
       >
-        <Text style={styles.contentBtnText}>Edit Content</Text>
+        <Text style={styles.contentBtnText}>Edit Note</Text>
       </TouchableOpacity>
     </View>
   );
@@ -80,9 +81,9 @@ const styles = StyleSheet.create({
   container: {
     height: heightPercentageToDP("82%"),
     textAlign: "left",
-    marginLeft: widthPercentageToDP('2%'),
+    marginLeft: widthPercentageToDP('5%'),
     marginRight: widthPercentageToDP('2%'),
-    // maxWidth:widthPercentageToDP('98%')
+    maxWidth: ('90%'),
   },
   invis: {
     display: "none"
@@ -131,7 +132,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     padding: widthPercentageToDP('2%'),
-    fontSize: 20
+    fontSize: 30
   },
   contents: {
     padding: widthPercentageToDP('1%'),
@@ -149,7 +150,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     padding: widthPercentageToDP('2%'),
-    fontSize: 20
+    fontSize: 20,
+  },
+  touchableOpacity:{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
   }
 });
 

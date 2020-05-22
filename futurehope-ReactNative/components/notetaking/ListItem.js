@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Link, useHistory } from "react-router-native";
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { widthPercentageToDP } from '../utils/PercenatageFix';
+import { widthPercentageToDP } from '../../utils/PercenatageFix';
 
 const ListItem = ({ item, deleteItem }) => {
     const history = useHistory()

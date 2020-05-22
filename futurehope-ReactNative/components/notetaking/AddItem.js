@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, } from 'react-native';
-import Icon from "react-native-vector-icons/FontAwesome";
-import { widthPercentageToDP, heightPercentageToDP } from '../utils/PercenatageFix';
+import { widthPercentageToDP, heightPercentageToDP } from '../../utils/PercenatageFix';
+
 const AddItem = ({ title, addItem, text, onTextChange, handleModal }) => {
     const submitHandler = () => {
         addItem(text)
@@ -10,10 +10,9 @@ const AddItem = ({ title, addItem, text, onTextChange, handleModal }) => {
 
     return (
         <View style={styles.container}>
-
             <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={80}>
                 <View style={styles.container}>
-                    <Text style={styles.text}>Adding A New Note</Text>
+                    <Text style={styles.text}>New Note</Text>
                 </View>
                 <TextInput multiline numberOfLines={10} onChangeText={text => onChangeText(text)} placeholder="Add item..." style={styles.input} onChangeText={onTextChange} value={text} />
             </KeyboardAvoidingView>
@@ -27,16 +26,16 @@ const AddItem = ({ title, addItem, text, onTextChange, handleModal }) => {
     );
 };
 
-
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: heightPercentageToDP('1%')
+        marginTop: heightPercentageToDP('1%'),
+        marginBottom: heightPercentageToDP('1%'),
     },
     input: {
-        height: heightPercentageToDP('80%'),
+        height: heightPercentageToDP('70%'),
         width: widthPercentageToDP('95%'),
         margin: widthPercentageToDP('2%'),
         fontSize: 16,
@@ -48,9 +47,9 @@ const styles = StyleSheet.create({
 
     },
     text: {
-        fontSize: 20,
+        fontSize: 24,
         textAlign: 'center',
-
+        color: 'orange',
     },
     button: {
         backgroundColor: 'white',
@@ -69,6 +68,5 @@ const styles = StyleSheet.create({
         width: widthPercentageToDP('45%')
     }
 });
-
 
 export default AddItem;

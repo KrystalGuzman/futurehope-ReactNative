@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, FlatList, AsyncStorage, Modal
 import ListItem from './ListItem';
 import AddItem from './AddItem';
 import Icon from "react-native-vector-icons/Entypo"
-import { widthPercentageToDP, heightPercentageToDP } from "../utils/PercenatageFix";
+import { widthPercentageToDP, heightPercentageToDP } from "../../utils/PercenatageFix";
 import { NativeRouter, Route, Link } from "react-router-native";
 
 
@@ -36,8 +36,8 @@ const NoteTaking = ({ items, deleteItem, addItem, text, onTextChange }) => {
 const styles = StyleSheet.create({
     container: {
         maxHeight:heightPercentageToDP('82.5%'),
-       
     },
+
     flatview: {
         maxHeight: heightPercentageToDP('70%'),
         height: heightPercentageToDP('77%')
@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
 
     plus: {
         marginLeft: widthPercentageToDP('78%'),
-    
     }
 
 });

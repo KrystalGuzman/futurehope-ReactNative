@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ShadowPropTypesIOS } from 'react-native';
 import { NativeRouter, Route, Link, useHistory } from "react-router-native"
 import Icon from 'react-native-vector-icons/FontAwesome'
-import { widthPercentageToDP, heightPercentageToDP } from '../utils/PercenatageFix'
+import { widthPercentageToDP, heightPercentageToDP } from '../../utils/PercenatageFix'
 
 const Header = () => {
     const history = useHistory()
@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         height: heightPercentageToDP('9%'),
-        paddingTop: heightPercentageToDP('4%'),
-        paddingBottom: heightPercentageToDP('1%'),
+        paddingTop: heightPercentageToDP('6%'),
+        paddingBottom: heightPercentageToDP('2%'),
         alignItems: 'center',
         borderBottomColor: '#eee',
         borderBottomWidth: 1,
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     text: {
         fontWeight: 'bold',
         fontSize: 18,
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'gray'
     },
     icon: {
         marginLeft: widthPercentageToDP('4%'),

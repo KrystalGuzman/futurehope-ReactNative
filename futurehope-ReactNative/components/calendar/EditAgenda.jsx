@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center"
   },
-
   button: {
     backgroundColor: "white",
     padding: widthPercentageToDP("2%"),
